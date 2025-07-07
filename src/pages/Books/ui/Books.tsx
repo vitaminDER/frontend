@@ -1,7 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { Book } from "../../../Book.tsx";
+import { useAppSelector } from "../../../App/store/storeHooks.ts";
+import { getBooks } from "../../../App/store/reducers/booksReducer/selectors.ts";
 
 export const Books = () => {
+  const bbb = useAppSelector(getBooks);
   const [books, setBooks] = useState([]);
 
   const getBookHandler = () => {
@@ -27,6 +30,7 @@ export const Books = () => {
 
   return (
     <div>
+      <div>{bbb[0]}</div>
       <div style={{ color: "#000" }}>
         <button onClick={getBookHandler}> получить книги</button>
         <button
