@@ -1,13 +1,31 @@
 import {createSlice} from "@reduxjs/toolkit";
 import type {BooksScheme} from "./booksSheme.ts";
+import {FetchStatus} from "../../storeTypes.ts";
+import {fetchBooks} from "./services.ts";
 
 const initialState: BooksScheme = {
-    books: ["books"],
+    books: [],
+    loadingBooks: FetchStatus.IDLE,
+    errorBooks: null,
 };
+
 const booksSlice = createSlice<BooksScheme>({
-    name: "booksSlice",
+    name: "books",
     initialState,
     reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchBooks.pending, (state) => {
+                state.loadingBooks = FetchStatus.PENDING;
+            })
+            .addCase(fetchBooks.fulfilled, (state, action) => {
+                state.books = action.payload;
+                state.loadingBooks = FetchStatus.SUCCESS;
+            })
+            .addCase(fetchBooks.rejected, (state) => {
+                state.loadingBooks = FetchStatus.REJECTED;
+            });
+    },
 });
 
 export const booksSliceActions = booksSlice.actions;
