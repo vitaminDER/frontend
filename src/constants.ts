@@ -1,6 +1,5 @@
 export enum PATH {
-  BASE = "/",
-  TEST_PAGER = "testpage",
-  TABLE = "table",
-  NOT_FOUND = "*",
+    BASE = "/",
+    TEST_PAGER = "test_page",
+    NOT_FOUND = "*",
 }

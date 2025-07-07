@@ -1,12 +1,13 @@
 import {useEffect, useMemo} from "react";
 import {Book} from "../../../Book.tsx";
 import {useAppDispatch, useAppSelector} from "../../../App/store/storeHooks.ts";
-import {getBooksSelector} from "../../../App/store/reducers/booksReducer/selectors.ts";
+import {getBooksSelector, getErrorBooksSelector} from "../../../App/store/reducers/booksReducer/selectors.ts";
 import {fetchBooks} from "../../../App/store/reducers/booksReducer/services.ts";
 
 export const Books = () => {
     const dispatch = useAppDispatch();
     const allBooks = useAppSelector(getBooksSelector);
+    const error = useAppSelector(getErrorBooksSelector);
 
     useEffect(() => {
         dispatch(fetchBooks());
@@ -17,6 +18,10 @@ export const Books = () => {
             return <Book key={el.id} book={el} books={allBooks}/>;
         });
     }, [allBooks]);
+
+    if (error) {
+        return <div>{error}</div>
+    }
 
     return (
         <div>

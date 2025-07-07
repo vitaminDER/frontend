@@ -22,7 +22,8 @@ const booksSlice = createSlice<BooksScheme>({
                 state.books = action.payload;
                 state.loadingBooks = FetchStatus.SUCCESS;
             })
-            .addCase(fetchBooks.rejected, (state) => {
+            .addCase(fetchBooks.rejected, (state, action) => {
+                state.errorBooks = action.payload?.message?.toUpperCase()
                 state.loadingBooks = FetchStatus.REJECTED;
             });
     },
