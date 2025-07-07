@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const NavWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+`;
 export const NavContainer = styled.div`
     width: 100%;
     box-sizing: border-box;
@@ -22,6 +27,4 @@ export const LinkContainer = styled.div`
     align-items: center;
     gap: 20px;
 `;
-export const LoaderContainer = styled.div`
-    height: 4px;
-`;
+
