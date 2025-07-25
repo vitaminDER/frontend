@@ -16,6 +16,7 @@ export const Nav = (): JSX.Element => {
                         <LibLogo/>
                     </Avatar>
                     <Link to={PATH.BASE}>Главная</Link>
+                    <Link to={PATH.BOOKS}>Книги</Link>
                     <Link to={PATH.TEST_PAGER}>TestPage</Link>
                 </LinkContainer>
                 {isAuth ? (
