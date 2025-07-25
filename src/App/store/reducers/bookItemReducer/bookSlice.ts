@@ -1,7 +1,8 @@
 import {FetchStatus} from "../../storeTypes.ts";
 import type {BookItemScheme} from "./bookItemSheme.ts";
 import {createSlice} from "@reduxjs/toolkit";
-import {fetchItemBook} from "./services.ts";
+import {fetchItemBook} from "./services/fetchItemBook.ts";
+import {deleteItemBook} from "./services/deleteItemBook.ts";
 
 
 const initialState: BookItemScheme = {
@@ -24,6 +25,18 @@ const bookItemSlice = createSlice<BookItemScheme>({
                 state.loadingBooks = FetchStatus.SUCCESS;
             })
             .addCase(fetchItemBook.rejected, (state, action) => {
+                state.errorBooks = action.payload?.message?.toUpperCase()
+                state.loadingBooks = FetchStatus.REJECTED;
+            });
+        builder
+            .addCase(deleteItemBook.pending, (state) => {
+                state.loadingBooks = FetchStatus.PENDING;
+            })
+            .addCase(deleteItemBook.fulfilled, (state) => {
+                state.book = null;
+                state.loadingBooks = FetchStatus.SUCCESS;
+            })
+            .addCase(deleteItemBook.rejected, (state, action) => {
                 state.errorBooks = action.payload?.message?.toUpperCase()
                 state.loadingBooks = FetchStatus.REJECTED;
             });

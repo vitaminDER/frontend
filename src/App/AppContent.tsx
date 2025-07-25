@@ -6,14 +6,18 @@ import {useAppSelector} from "./store/storeHooks.ts";
 import {getLoadingBooksSelector} from "./store/reducers/booksReducer/selectors.ts";
 import {FetchStatus} from "./store/storeTypes.ts";
 import {JSX} from "react";
+import {getItemBookStatusSelector} from "./store/reducers/bookItemReducer/selectors.ts";
 
 export const AppContent = (): JSX.Element => {
-    const loadingStatus = useAppSelector(getLoadingBooksSelector);
+    const loadingStatusBooks = useAppSelector(getLoadingBooksSelector);
+    const loadingStatusItemBook = useAppSelector(getItemBookStatusSelector);
+
+    const isLoading = loadingStatusBooks === FetchStatus.PENDING || loadingStatusItemBook === FetchStatus.PENDING;
 
     return (
         <AppContentWrapper>
             <Nav/>
-            <LoaderContainer>{loadingStatus === FetchStatus.PENDING ? <LinearProgress/> : null}</LoaderContainer>
+            <LoaderContainer>{isLoading ? <LinearProgress/> : null}</LoaderContainer>
             <Outlet/>
         </AppContentWrapper>
     );

@@ -1,9 +1,9 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import type {RequestError} from "../../storeTypes.ts";
-import {api} from "../../../../utils/api/api.ts";
-import {QUERY} from "../../backend/constants.ts";
+import type {RequestError} from "../../../storeTypes.ts";
+import {api} from "../../../../../utils/api/api.ts";
+import {QUERY} from "../../../backend/constants.ts";
 import type {AxiosError} from "axios";
-import type {BookItem} from "./bookItemSheme.ts";
+import type {BookItem} from "../bookItemSheme.ts";
 
 interface RequestBook {
     id: string | undefined;
