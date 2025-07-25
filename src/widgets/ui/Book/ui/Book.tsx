@@ -57,15 +57,9 @@ export const Book = (props: BookProps) => {
                 </div>
                 <div style={{
                     width: '215px',
-                    // display: 'flex', flexDirection: 'column',
-                    // alignItems: 'flex-start', overflow: 'hidden', whiteSpace: 'nowrap',
-                    // textOverflow: 'ellipsis'
                 }}>
                     <div>Название: {book.title}</div>
-                    {/*<div>Год издания: {book.year}</div>*/}
-                    <div style={{
-                        textOverflow: 'ellipsis'
-                    }}>Описание: {book.description}
+                    <div>Автор: {book.author}
                     </div>
                 </div>
 

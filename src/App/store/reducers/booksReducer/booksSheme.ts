@@ -3,7 +3,7 @@ import {FetchStatus, Nullable} from "../../storeTypes.ts";
 export interface IBooks {
     id: string;
     title: string;
-    description: string
+    author: string
 
 }
 

@@ -8,11 +8,11 @@ const mockBooks: IBooks[] = [
     {
         id: '1',
         title: 'Воина и мир',
-        description: 'О воине и мире'
+        author: 'О воине и мире'
     }, {
         id: '2',
         title: 'Хоббит',
-        description: 'О путешествии Бильбо Бегинса'
+        author: 'О путешествии Бильбо Бегинса'
     },
 ]
 
