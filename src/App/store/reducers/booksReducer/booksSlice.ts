@@ -8,11 +8,11 @@ const mockBooks: IBooks[] = [
     {
         id: '1',
         title: 'Воина и мир',
-        author: 'О воине и мире'
+        author: 'Толстой Л.Н.'
     }, {
         id: '2',
         title: 'Хоббит',
-        author: 'О путешествии Бильбо Бегинса'
+        author: 'Толкин Р.Р.'
     },
 ]
 
@@ -36,11 +36,11 @@ const booksSlice = createSlice<BooksScheme>({
                 state.loadingBooks = FetchStatus.SUCCESS;
             })
             .addCase(fetchBooks.rejected, (state, action) => {
-                state.errorBooks = action.payload?.message?.toUpperCase()
-                state.loadingBooks = FetchStatus.REJECTED;
-                // console.log(action.payload)
-                // state.books = mockBooks;
-                // state.loadingBooks = FetchStatus.SUCCESS;
+                // state.errorBooks = action.payload?.message?.toUpperCase()
+                // state.loadingBooks = FetchStatus.REJECTED;
+                console.log(action.payload)
+                state.books = mockBooks;
+                state.loadingBooks = FetchStatus.SUCCESS;
             });
     },
 });

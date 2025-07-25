@@ -1,15 +1,15 @@
 import image from '../../../../assets/krasnajkniga.jpg'
 import {Link} from "react-router-dom";
+import type {IBooks} from "../../../../App/store/reducers/booksReducer/booksSheme.ts";
+import {BookContainer, ImgContainer, InfoBook} from "./styles.ts";
 
 interface BookProps {
-    book: any;
-    books: any;
-    setBooks: (value) => void
+    book: IBooks;
 
 }
 
 export const Book = (props: BookProps) => {
-    const {book, books, setBooks} = props;
+    const {book} = props;
     const deleteHandler = (id) => {
         fetch(`http://localhost:8081/api/book/${id}`, {
             method: 'DELETE',
@@ -31,39 +31,17 @@ export const Book = (props: BookProps) => {
             color: 'black',
             textDecoration: 'none'
         }}>
-            <div
-                style={{
-                    width: '240px',
-                    minHeight: '370px',
-                    borderRadius: '8px',
-                    border: '2px solid green',
-                    backgroundColor: '#df926582',
-                    padding: '10px',
-                    display: 'flex', flexDirection: 'column',
-                    alignItems: 'flex-start',
-                }}
-            >
-                <div style={{
-                    width: '215px',
-                    height: '270px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    borderRadius: '8px',
-                    border: '2px solid #000',
-                    backgroundColor: '#fff',
-                }}>
+            <BookContainer>
+                <ImgContainer>
                     <img src={image} width={210} height={260}/>
-                </div>
-                <div style={{
-                    width: '215px',
-                }}>
-                    <div>Название: {book.title}</div>
+                </ImgContainer>
+                <InfoBook>
+                    <div>Название: {book.title.toUpperCase()}</div>
                     <div>Автор: {book.author}
                     </div>
-                </div>
+                </InfoBook>
 
-            </div>
+            </BookContainer>
         </Link>
     );
 };

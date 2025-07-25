@@ -6,7 +6,7 @@ import {AppContent} from "../AppContent.tsx";
 import {TestPage} from "../../pages/TestPage/TestPage.tsx";
 import {NotFound} from "../../pages/NotFound/ui/NotFound.tsx";
 import {Main} from "../../pages/Main";
-import {Books} from "../../pages/Books/ui";
+import {Books} from "../../pages/Books";
 import {BookItem} from "../../widgets/ui/BookItem";
 
 export const BrowserProvider = () => {
