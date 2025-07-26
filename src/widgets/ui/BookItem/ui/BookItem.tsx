@@ -28,9 +28,9 @@ export const BookItem = () => {
         dispatch(fetchItemBook({id: bookId}))
     }, []);
 
-    // if (errorBooks) {
-    //     return <div>{errorBooks}</div>
-    // }
+    if (errorBooks) {
+        return <div>{errorBooks}</div>
+    }
 
     return (
         <PageWrapper style={{color: '#000'}}>

@@ -1,9 +1,13 @@
 import styled from "styled-components";
 
+interface BookImage {
+    width?: string;
+    height?: string;
+}
 
-export const BoxBook = styled.div`
-    width: 300px;
-    height: 400px;
+export const BoxBook = styled.div<BookImage>`
+    width: ${({width}) => width ? width : '300px'};
+    height: ${({height}) => height ? height : '400px'};
     display: flex;
     flex-direction: row;
     background-color: #747bff;
