@@ -37,8 +37,10 @@ export const BookItem = () => {
             <BookImage author={book?.author} bookName={book?.title}/>
             <InfoBook>
                 <Rating rating={book ? book.rating : 0}/>
-                <div>Год издания : {book?.year}</div>
-                <div>Описание : {book?.description}</div>
+                <h3> {book?.title.toUpperCase()}</h3>
+                <div>Автор: {book?.author}</div>
+                <div>Год издания: {book?.year}</div>
+                <div>Описание: {book?.description}</div>
                 <DeleteIcon onClick={() => deleteHandler(bookId)}/>
             </InfoBook>
         </PageWrapper>

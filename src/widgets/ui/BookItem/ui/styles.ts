@@ -7,7 +7,9 @@ export const PageWrapper = styled.div`
     gap: 30px;
 `;
 export const InfoBook = styled.div`
+    width: 900px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
+    padding-top: 10px;
 `;
