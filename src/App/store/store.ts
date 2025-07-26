@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage'
 import {FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE,} from 'redux-persist';
 import {authSliceReducer} from "./reducers/authReducer/authSlice.ts";
 import {itemBookSliceReducer} from "./reducers/bookItemReducer/bookSlice.ts";
+import {reviewsSliceReducer} from "./reducers/reviewsReducer/reviewsSlice.ts";
 
 
 const persistConfig = {
@@ -15,6 +16,7 @@ const persistConfig = {
 export const rootReducer = combineReducers({
     books: booksSliceReducer,
     bookItem: itemBookSliceReducer,
+    reviews: reviewsSliceReducer,
     authPreference: authSliceReducer
 });
 

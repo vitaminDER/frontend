@@ -1,16 +1,20 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {api} from "../../../../utils/api/api.ts";
-import {QUERY} from "../../backend/constants.ts";
-import type {IBooks} from "./booksScheme.ts";
-import type {RequestError} from "../../storeTypes.ts";
+import type {RequestError} from "../../../storeTypes.ts";
+import {api} from "../../../../../utils/api/api.ts";
+import {QUERY} from "../../../backend/constants.ts";
 import type {AxiosError} from "axios";
+import type {Reviews} from "../reviewsScheme.ts";
 
+// interface RequestReviews {
+//     id: string | undefined;
+// }
 
-export const fetchBooks = createAsyncThunk<IBooks[], void, {
+export const fetchReviews = createAsyncThunk<Reviews[], string, {
     rejectValue: RequestError
-}>("fetchBooks", async (_, thunkAPI) => {
+}>("fetchReviews", async (id, thunkAPI) => {
     try {
-        const response = await api.get<IBooks[]>(QUERY.getBooksUrl);
+        // const response = await api.get<Reviews[]>(QUERY.getReviewsUrl, {params});
+        const response = await api.get<Reviews[]>(`${QUERY.getReviewsUrl}/${id}`);
         return response.data;
     } catch (e) {
         const error = e as AxiosError<RequestError>

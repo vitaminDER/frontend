@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import type {IBooks} from "../../../../App/store/reducers/booksReducer/booksSheme.ts";
+import type {IBooks} from "../../../../App/store/reducers/booksReducer/booksScheme.ts";
 import {BookImage} from "../../BookImage";
 
 interface BookProps {

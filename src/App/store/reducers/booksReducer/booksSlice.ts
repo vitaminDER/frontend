@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import type {BooksScheme, IBooks} from "./booksSheme.ts";
+import type {BooksScheme, IBooks} from "./booksScheme.ts";
 import {FetchStatus} from "../../storeTypes.ts";
 import {fetchBooks} from "./services.ts";
 
@@ -36,11 +36,11 @@ const booksSlice = createSlice<BooksScheme>({
                 state.loadingBooks = FetchStatus.SUCCESS;
             })
             .addCase(fetchBooks.rejected, (state, action) => {
-                state.errorBooks = action.payload?.message?.toUpperCase()
-                state.loadingBooks = FetchStatus.REJECTED;
-                // console.log(action.payload)
-                // state.books = mockBooks;
-                // state.loadingBooks = FetchStatus.SUCCESS;
+                // state.errorBooks = action.payload?.message?.toUpperCase()
+                // state.loadingBooks = FetchStatus.REJECTED;
+                console.log(action.payload)
+                state.books = mockBooks;
+                state.loadingBooks = FetchStatus.SUCCESS;
             });
     },
 });

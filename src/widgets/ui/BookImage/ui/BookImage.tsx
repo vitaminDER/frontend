@@ -6,7 +6,8 @@ import {
     ContainerLine,
     LineHorizontal,
     RombBox,
-    RombBoxSmall
+    RombBoxSmall,
+    TextName
 } from "./styles.ts";
 
 interface BookImageProps {
@@ -21,8 +22,8 @@ export const BookImage = (props: BookImageProps) => {
             <BoxLeftOne/>
             <BoxLeft/>
             <BoxRight>
-                <h4>{author?.toUpperCase()}</h4>
-                <h3>{bookName?.toUpperCase()}</h3>
+                <TextName>{author?.toUpperCase()}</TextName>
+                <TextName>{bookName?.toUpperCase()}</TextName>
                 <ContainerLine>
                     <RombBoxSmall/>
                     <RombBox/>
