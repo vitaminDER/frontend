@@ -19,7 +19,7 @@ export const BookItem = () => {
 
     console.log(bookId);
     const ganreList = book?.genre.map(el => {
-        return <span key={el.id}>{el.name}</span>
+        return <span key={el.id}>{el.name}, </span>
     })
     const deleteHandler = (id) => {
         dispatch(deleteItemBook(id))
