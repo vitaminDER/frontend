@@ -5,7 +5,7 @@ import {fetchItemBook} from "../../../../App/store/reducers/bookItemReducer/serv
 import {getItemBookSelector} from "../../../../App/store/reducers/bookItemReducer/selectors.ts";
 import {InfoBook, PageWrapper} from "./styles.ts";
 import {BookImage} from "../../BookImage";
-import {Rating} from "../../../Rating/ui/Rating.tsx";
+import {Rating} from "../../Rating/ui/Rating.tsx";
 import DeleteIcon from '@mui/icons-material/Delete';
 import {PATH} from "../../../../constants.ts";
 import {deleteItemBook} from "../../../../App/store/reducers/bookItemReducer/services/deleteItemBook.ts";

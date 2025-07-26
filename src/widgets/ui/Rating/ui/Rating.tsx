@@ -1,5 +1,5 @@
 import {StarsContainer} from "./styles.ts";
-import {StarSvg} from "../../../assets/StarSvg.tsx";
+import {StarSvg} from "../../../../assets/StarSvg.tsx";
 
 const countStar: number = 5;
 
