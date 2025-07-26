@@ -18,7 +18,9 @@ export const BookItem = () => {
     const bookId = id && id.slice(1);
 
     console.log(bookId);
-
+    const ganreList = book?.genre.map(el => {
+        return <span key={el.id}>{el.name}</span>
+    })
     const deleteHandler = (id) => {
         dispatch(deleteItemBook(id))
         navigate(PATH.BOOKS)
@@ -39,8 +41,9 @@ export const BookItem = () => {
                 <Rating rating={book ? book.rating : 0}/>
                 <h3> {book?.title.toUpperCase()}</h3>
                 <div>Автор: {book?.author}</div>
-                <div>Год издания: {book?.year}</div>
+                <div>Год издания: {book?.year}г.</div>
                 <div>Описание: {book?.description}</div>
+                <div> Жанр: {ganreList}</div>
                 <DeleteIcon onClick={() => deleteHandler(bookId)}/>
             </InfoBook>
         </PageWrapper>
