@@ -9,13 +9,14 @@ import {useParams} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../../../App/store/storeHooks.ts";
 import {getReviews} from "../../../../App/store/reducers/reviewsReducer/selectors.ts";
 import {setPagination} from "../../../../App/store/reducers/reviewsReducer/reviewsSlice.ts";
+import {FetchStatus} from "../../../../App/store/storeTypes.ts";
 
 
 export const Accordion = () => {
     const {id} = useParams();
     const bookId = id?.slice(1);
     const dispatch = useAppDispatch();
-    const {reviews} = useAppSelector(getReviews);
+    const {reviews, loadingReviews} = useAppSelector(getReviews);
     const [isVisible, setIsVisible] = useState(false)
     const visibleHandler = () => {
         setIsVisible(prev => !prev)
@@ -44,14 +45,14 @@ export const Accordion = () => {
                 <>{isVisible ? <ExpandLessIcon/> :
                     <ExpandMoreIcon/>}</>
             </AccordionCollapsed>
-            <>{isVisible && <AccordionUnCollapsed>
+            <>{isVisible && loadingReviews === FetchStatus.SUCCESS ? <AccordionUnCollapsed>
                 <Review/>
                 <PaginationContainer>
                     <Pagination count={reviews.totalPage} page={reviews.pageNumber}
                                 onChange={handlePaginationChange}
                                 size="small"/>
                 </PaginationContainer>
-            </AccordionUnCollapsed>}</>
+            </AccordionUnCollapsed> : <div>загрузка</div>}</>
         </ReviewContainer>
     );
 
