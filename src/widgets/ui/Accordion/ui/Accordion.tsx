@@ -47,7 +47,8 @@ export const Accordion = () => {
             <>{isVisible && <AccordionUnCollapsed>
                 <Review/>
                 <PaginationContainer>
-                    <Pagination count={reviews.totalPage} page={reviews.pageNumber} onChange={handlePaginationChange}
+                    <Pagination count={reviews.totalPage} page={reviews.pageNumber}
+                                onChange={handlePaginationChange}
                                 size="small"/>
                 </PaginationContainer>
             </AccordionUnCollapsed>}</>
