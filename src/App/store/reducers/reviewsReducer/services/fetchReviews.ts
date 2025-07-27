@@ -5,16 +5,16 @@ import {QUERY} from "../../../backend/constants.ts";
 import type {AxiosError} from "axios";
 import type {Reviews} from "../reviewsScheme.ts";
 
-// interface RequestReviews {
-//     id: string | undefined;
-// }
+interface RequestReviews {
+    bookId: string | undefined;
+}
 
-export const fetchReviews = createAsyncThunk<Reviews[], string, {
+export const fetchReviews = createAsyncThunk<Reviews[], RequestReviews, {
     rejectValue: RequestError
-}>("fetchReviews", async (id, thunkAPI) => {
+}>("fetchReviews", async (params, thunkAPI) => {
     try {
-        // const response = await api.get<Reviews[]>(QUERY.getReviewsUrl, {params});
-        const response = await api.get<Reviews[]>(`${QUERY.getReviewsUrl}/${id}`);
+        const response = await api.get<Reviews[]>(QUERY.getReviewsUrl, {params});
+        // const response = await api.get<Reviews[]>(`${QUERY.getReviewsUrl}/${id}`);
         return response.data;
     } catch (e) {
         const error = e as AxiosError<RequestError>

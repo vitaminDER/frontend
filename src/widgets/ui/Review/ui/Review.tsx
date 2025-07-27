@@ -27,7 +27,7 @@ export const Review = () => {
     })
 
     useEffect(() => {
-        dispatch(fetchReviews(bookId))
+        dispatch(fetchReviews({bookId}))
     }, []);
 
     return (
