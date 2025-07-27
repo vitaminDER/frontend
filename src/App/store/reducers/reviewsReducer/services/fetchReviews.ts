@@ -7,9 +7,11 @@ import type {Reviews} from "../reviewsScheme.ts";
 
 interface RequestReviews {
     bookId: string | undefined;
+    pageNumber: number;
+    pageSize: number;
 }
 
-export const fetchReviews = createAsyncThunk<Reviews[], RequestReviews, {
+export const fetchReviews = createAsyncThunk<Reviews, RequestReviews, {
     rejectValue: RequestError
 }>("fetchReviews", async (params, thunkAPI) => {
     try {

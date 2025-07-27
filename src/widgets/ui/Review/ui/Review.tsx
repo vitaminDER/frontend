@@ -13,7 +13,7 @@ export const Review = () => {
     const dispatch = useAppDispatch();
     const {reviews} = useAppSelector(getReviews);
 
-    const reviewsList = reviews.map((review) => {
+    const reviewsList = reviews?.content.map((review) => {
         return <ReviewContainer key={review.personId}>
             <ReviewInfo>
                 <Rating rating={review.evaluation}/>
