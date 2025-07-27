@@ -14,6 +14,7 @@ export const ReviewContainer = styled.div`
     display: flex;
     flex-direction: row;
     gap: 16px;
+    color: #09090c;
 `;
 
 export const ReviewInfo = styled.div`
