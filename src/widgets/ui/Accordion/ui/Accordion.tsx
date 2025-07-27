@@ -31,8 +31,10 @@ export const Accordion = () => {
             pageSize: 10,
 
         }
-        dispatch(fetchReviews(request))
-    }, [bookId, reviews.pageNumber]);
+        if (isVisible) {
+            dispatch(fetchReviews(request))
+        }
+    }, [bookId, reviews.pageNumber, isVisible]);
 
     return (
         <ReviewContainer>

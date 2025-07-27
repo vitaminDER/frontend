@@ -1,20 +1,20 @@
 import {createSlice} from "@reduxjs/toolkit";
-import type {BooksScheme, IBooks} from "./booksScheme.ts";
+import type {BooksScheme} from "./booksScheme.ts";
 import {FetchStatus} from "../../storeTypes.ts";
 import {fetchBooks} from "./services.ts";
 
 
-const mockBooks: IBooks[] = [
-    {
-        id: '1',
-        title: 'Воина и мир',
-        author: 'Толстой Л.Н.'
-    }, {
-        id: '2',
-        title: 'Хоббит',
-        author: 'Толкин Р.Р.'
-    },
-]
+// const mockBooks: IBooks[] = [
+//     {
+//         id: '1',
+//         title: 'Воина и мир',
+//         author: 'Толстой Л.Н.'
+//     }, {
+//         id: '2',
+//         title: 'Хоббит',
+//         author: 'Толкин Р.Р.'
+//     },
+// ]
 
 const initialState: BooksScheme = {
     books: [],
