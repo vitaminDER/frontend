@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ReviewWrapper = styled.div`
-    height: 300px;
+    height: 250px;
     overflow: scroll;
     display: flex;
     flex-direction: column;
@@ -15,6 +15,8 @@ export const ReviewContainer = styled.div`
     flex-direction: row;
     gap: 16px;
     color: #09090c;
+    font-family: "Apple SD Gothic Neo";
+    font-size: 14px;
 `;
 
 export const ReviewInfo = styled.div`

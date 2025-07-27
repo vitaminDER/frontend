@@ -31,3 +31,9 @@ export const ReviewContainer = styled.div`
     border-radius: 8px;
     background-color: #9256212e;
 `;
+
+export const PaginationContainer = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0;
+`;

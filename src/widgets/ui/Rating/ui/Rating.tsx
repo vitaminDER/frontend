@@ -12,7 +12,7 @@ export const Rating = (props: RatingProps) => {
 
     const starList = Array.from({length: countStar}, (_, i) => i + 1).map(el => {
         // return <StarWithBorder color={'green'}/>
-        return <StarSvg color={rating >= el ? '#ffd700' : '#fff'}/>
+        return <StarSvg key={el} color={rating >= el ? '#ffd700' : '#fff'}/>
     });
 
     return (
