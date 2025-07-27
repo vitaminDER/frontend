@@ -48,7 +48,7 @@ export const Accordion = () => {
             <>{isVisible && loadingReviews === FetchStatus.SUCCESS ? <AccordionUnCollapsed>
                 <Review/>
                 <PaginationContainer>
-                    <Pagination count={reviews.totalPage} page={reviews.pageNumber}
+                    <Pagination count={reviews.totalPages} page={reviews.pageNumber}
                                 onChange={handlePaginationChange}
                                 size="small"/>
                 </PaginationContainer>

@@ -12,7 +12,7 @@ export interface Reviews {
     content: Review[];
     pageNumber: number;
     pageSize: number;
-    totalPage: number;
+    totalPages: number;
 }
 
 export interface ReviewsScheme {
