@@ -28,13 +28,13 @@ export const Accordion = () => {
         const request = {
             bookId: bookId,
             pageNumber: reviews.pageNumber,
-            pageSize: 10,
+            pageSize: reviews.pageSize,
 
         }
         if (isVisible) {
             dispatch(fetchReviews(request))
         }
-    }, [bookId, reviews.pageNumber, isVisible]);
+    }, [bookId, reviews.pageNumber, isVisible, reviews.pageSize]);
 
     return (
         <ReviewContainer>
