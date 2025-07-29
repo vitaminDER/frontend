@@ -18,7 +18,6 @@ export const Nav = (): JSX.Element => {
                     {/*</Avatar>*/}
                     {/*<BooksSvg/>*/}
                     <Link to={PATH.BASE}><BooksSvg/></Link>
-                    <Link to={PATH.BASE}>Главная</Link>
                     <Link to={PATH.BOOKS}>Книги</Link>
                     <Link to={PATH.TEST_PAGER}>TestPage</Link>
                 </LinkContainer>

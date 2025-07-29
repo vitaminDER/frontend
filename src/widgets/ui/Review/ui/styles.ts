@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ReviewWrapper = styled.div`
     height: 250px;
-    overflow: scroll;
+    //overflow: scroll;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
