@@ -1,4 +1,4 @@
 import type {RootState} from "../../store.ts";
 
-export const getLogin = (state: RootState) => state.authPreference.login;
-export const getPass = (state: RootState) => state.authPreference.login;
+export const getAuth = (state: RootState) => state.authPreference.authData;
+export const getIsRegistration = (state: RootState) => state.authPreference.authData.isRegistration;

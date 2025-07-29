@@ -1,12 +1,13 @@
 import {LinkContainer, NavContainer, NavWrapper} from "./styles.ts";
 import {Button} from "@mui/material";
-import {JSX, useState} from "react";
-import {Link} from "react-router-dom";
+import {JSX} from "react";
+import {Link, useNavigate} from "react-router-dom";
 import {PATH} from "../../../../constants.ts";
 import {BooksSvg} from "../../../../assets/BooksSvg.tsx";
 
 export const Nav = (): JSX.Element => {
-    const [isAuth, setIsAuth] = useState(true);
+
+    const navigate = useNavigate();
 
     return (
         <NavWrapper>
@@ -21,27 +22,17 @@ export const Nav = (): JSX.Element => {
                     <Link to={PATH.BOOKS}>Книги</Link>
                     <Link to={PATH.TEST_PAGER}>TestPage</Link>
                 </LinkContainer>
-                {isAuth ? (
-                    <Button
-                        variant="outlined"
-                        size="small"
-                        onClick={() => {
-                            setIsAuth((pref) => !pref);
-                        }}
-                    >
-                        Вход
-                    </Button>
-                ) : (
-                    <Button
-                        variant="outlined"
-                        size="small"
-                        onClick={() => {
-                            setIsAuth((pref) => !pref);
-                        }}
-                    >
-                        Регистрация
-                    </Button>
-                )}
+                <Button
+                    sx={{width: '100px'}}
+                    variant="outlined"
+                    size="small"
+                    onClick={() => {
+                        navigate(PATH.AUTH)
+                    }}
+                >
+                    Вход
+                </Button>
+
             </NavContainer>
         </NavWrapper>
     );

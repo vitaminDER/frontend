@@ -8,6 +8,9 @@ import {NotFound} from "../../pages/NotFound/ui/NotFound.tsx";
 import {Main} from "../../pages/Main";
 import {Books} from "../../pages/Books";
 import {BookItem} from "../../widgets/ui/BookItem";
+import {Registration} from "../../pages/Registration";
+import {Auth} from "../../pages/Auth";
+import {CircularProgress} from "@mui/material";
 
 export const BrowserProvider = () => {
     return (
@@ -18,7 +21,9 @@ export const BrowserProvider = () => {
                     <Route index path={PATH.BOOKS} element={<Books/>}/>
                     <Route path={PATH.BOOKITEM} element={
                         <Suspense fallback={
-                            <div>Загрузка</div>}><BookItem/></Suspense>}></Route>
+                            <CircularProgress size="30px"/>}><BookItem/></Suspense>}></Route>
+                    <Route path={PATH.AUTH} element={<Auth/>}/>
+                    <Route path={PATH.REGISTRATION} element={<Registration/>}/>
                     <Route path={PATH.TEST_PAGER} element={<TestPage/>}/>
                     <Route path={PATH.NOT_FOUND} element={<NotFound/>}/>
                 </Route>

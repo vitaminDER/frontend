@@ -37,3 +37,10 @@ export const PaginationContainer = styled.div`
     justify-content: flex-end;
     margin: 10px 0;
 `;
+
+export const LoaderContainer = styled.div`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
