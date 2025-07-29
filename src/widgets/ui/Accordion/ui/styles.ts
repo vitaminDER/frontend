@@ -1,28 +1,20 @@
 import styled from "styled-components";
 
 export const AccordionCollapsed = styled.div`
-    //width: 80%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    //border-radius: 8px;
     padding: 20px;
     box-sizing: border-box;
-    //background-color: #f59642;
 `;
 
 
 export const AccordionUnCollapsed = styled.div`
-    //width: 80%;
     display: flex;
     flex-direction: column;
-    //align-items: center;
-    //justify-content: space-between;
-    //border-radius: 8px;
     padding: 10px 20px;
     box-sizing: border-box;
-    //background-color: #f59642;
 `;
 export const ReviewContainer = styled.div`
     width: 80%;
