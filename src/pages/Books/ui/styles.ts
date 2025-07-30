@@ -7,7 +7,8 @@ export const BooksWrapper = styled.div`
 export const BooksListContainer = styled.div`
     display: flex;
     flex-direction: row;
-    gap: 15px;
+  justify-content: space-evenly;
+    gap: 40px;
     flex-wrap: wrap;
     color: #000;
 `

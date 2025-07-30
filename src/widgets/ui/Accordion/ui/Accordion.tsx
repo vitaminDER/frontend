@@ -37,7 +37,6 @@ export const Accordion = () => {
             dispatch(fetchReviews(request))
         }
     }, [bookId, reviews.pageNumber, isVisible, reviews.pageSize]);
-
     return (
         <ReviewContainer>
             <AccordionCollapsed onClick={visibleHandler}>

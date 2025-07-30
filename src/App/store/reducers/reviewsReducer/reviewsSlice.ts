@@ -46,7 +46,7 @@ const initialState: ReviewsScheme = {
     reviews: {
         content: [],
         pageNumber: 1,
-        pageSize: 2,
+        pageSize: 5,
         totalPages: 5,
     },
     loadingReviews: FetchStatus.IDLE,

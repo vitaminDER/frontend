@@ -29,7 +29,7 @@ export const BoxLeftOne = styled.div`
     border-radius: 8px;
 `;
 export const BoxRight = styled.div`
-    width: 100%;
+    width: 300px;
     height: 400px;
     box-sizing: border-box;
     display: flex;
