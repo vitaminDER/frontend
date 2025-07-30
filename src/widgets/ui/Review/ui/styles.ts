@@ -25,7 +25,6 @@ export const ReviewInfo = styled.div`
     gap: 10px;
 `;
 export const ReviewTextComment = styled.div`
-    position: relative;
     min-height: 40px;
     box-sizing: border-box;
     border-radius: 4px;
