@@ -17,7 +17,7 @@ export const NavContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     background: rgb(100 180 255 / 6%);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(100, 180, 255, 0.7);
     padding: 10px 20px;
