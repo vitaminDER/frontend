@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 export const NavWrapper = styled.div`
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -28,3 +32,9 @@ export const LinkContainer = styled.div`
     gap: 20px;
 `;
 
+export const RightContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+`;

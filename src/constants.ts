@@ -5,6 +5,6 @@ export enum PATH {
     AUTH = "/auth",
     BOOK = "/book",
     BOOKITEM = "/book/:id",
-    TEST_PAGER = "test_page",
+    PROFILE = "profile",
     NOT_FOUND = "*",
 }

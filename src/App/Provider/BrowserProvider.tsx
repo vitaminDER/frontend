@@ -3,7 +3,7 @@ import {PATH} from "../../constants.ts";
 import * as React from "react";
 import {Suspense} from "react";
 import {AppContent} from "../AppContent.tsx";
-import {TestPage} from "../../pages/TestPage/TestPage.tsx";
+import {Profile} from "../../pages/Profile/Profile.tsx";
 import {NotFound} from "../../pages/NotFound/ui/NotFound.tsx";
 import {Main} from "../../pages/Main";
 import {Books} from "../../pages/Books";
@@ -24,7 +24,7 @@ export const BrowserProvider = () => {
                             <CircularProgress size="30px"/>}><BookItem/></Suspense>}></Route>
                     <Route path={PATH.AUTH} element={<Auth/>}/>
                     <Route path={PATH.REGISTRATION} element={<Registration/>}/>
-                    <Route path={PATH.TEST_PAGER} element={<TestPage/>}/>
+                    <Route path={PATH.PROFILE} element={<Profile/>}/>
                     <Route path={PATH.NOT_FOUND} element={<NotFound/>}/>
                 </Route>
             </Routes>

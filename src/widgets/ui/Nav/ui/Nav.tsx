@@ -1,4 +1,4 @@
-import {LinkContainer, NavContainer, NavWrapper} from "./styles.ts";
+import {LinkContainer, NavContainer, NavWrapper, RightContainer} from "./styles.ts";
 import {Button} from "@mui/material";
 import {JSX} from "react";
 import {Link, useNavigate} from "react-router-dom";
@@ -19,9 +19,8 @@ export const Nav = (): JSX.Element => {
                     {/*<BooksSvg/>*/}
                     <Link to={PATH.BASE}><BooksSvg/></Link>
                     <Link to={PATH.BOOKS}>Книги</Link>
-                    <Link to={PATH.TEST_PAGER}>TestPage</Link>
                 </LinkContainer>
-                <Button
+                <RightContainer><Button
                     sx={{width: '100px'}}
                     variant="outlined"
                     size="small"
@@ -31,7 +30,8 @@ export const Nav = (): JSX.Element => {
                 >
                     Вход
                 </Button>
-
+                    <Link to={PATH.PROFILE}>Профиль</Link>
+                </RightContainer>
             </NavContainer>
         </NavWrapper>
     );

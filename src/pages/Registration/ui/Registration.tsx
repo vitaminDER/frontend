@@ -29,7 +29,7 @@ export const Registration = () => {
                     maxRows={4}
                     sx={{width: '450px'}}
                 />
-                <FormControl sx={{m: 1, width: '450px'}} variant="outlined">
+                <FormControl sx={{width: '450px'}} variant="outlined">
                     <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
                     <OutlinedInput
                         id="outlined-adornment-password"
@@ -50,6 +50,29 @@ export const Registration = () => {
                             </InputAdornment>
                         }
                         label="Password"
+                    />
+                </FormControl>
+                <FormControl sx={{width: '450px'}} variant="outlined">
+                    <InputLabel htmlFor="outlined-adornment-password">Confirm password</InputLabel>
+                    <OutlinedInput
+                        id="outlined-adornment-password"
+                        type={showPassword ? 'text' : 'password'}
+                        endAdornment={
+                            <InputAdornment position="end">
+                                <IconButton
+                                    aria-label={
+                                        showPassword ? 'hide the password' : 'display the password'
+                                    }
+                                    onClick={handleClickShowPassword}
+                                    onMouseDown={handleMouseDownPassword}
+                                    onMouseUp={handleMouseUpPassword}
+                                    edge="end"
+                                >
+                                    {showPassword ? <VisibilityOffIcon/> : <VisibilityIcon/>}
+                                </IconButton>
+                            </InputAdornment>
+                        }
+                        label="Confirm password"
                     />
                 </FormControl>
                 <Button sx={{width: '450px'}}
