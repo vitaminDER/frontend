@@ -4,8 +4,11 @@ import {JSX} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {PATH} from "../../../../constants.ts";
 import {BooksSvg} from "../../../../assets/BooksSvg.tsx";
+import {useAuth} from "../../../../App/store/hooks/useAuth.ts";
+import {UserRole} from "../../../../App/store/reducers/authReducer/authSchema.ts";
 
 export const Nav = (): JSX.Element => {
+    const {isAuth, role} = useAuth();
 
     const navigate = useNavigate();
 
@@ -13,10 +16,6 @@ export const Nav = (): JSX.Element => {
         <NavWrapper>
             <NavContainer>
                 <LinkContainer>
-                    {/*<Avatar sx={{bgcolor: "rgba(6,227,234,0.12)"}}>*/}
-                    {/*    <LibLogo/>*/}
-                    {/*</Avatar>*/}
-                    {/*<BooksSvg/>*/}
                     <Link to={PATH.BASE}><BooksSvg/></Link>
                     <Link to={PATH.BOOKS}>Книги</Link>
                 </LinkContainer>
@@ -31,6 +30,7 @@ export const Nav = (): JSX.Element => {
                     Вход
                 </Button>
                     <Link to={PATH.PROFILE}>Профиль</Link>
+                    {isAuth && role.includes(UserRole.ADMIN) && <Link to={PATH.ADMIN}>Admin</Link>}
                 </RightContainer>
             </NavContainer>
         </NavWrapper>

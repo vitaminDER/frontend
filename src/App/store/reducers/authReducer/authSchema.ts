@@ -1,8 +1,16 @@
 import {FetchStatus, Nullable} from "../../storeTypes.ts";
 
+export enum UserRole {
+    ADMIN = 'admin',
+    USER = 'user',
+}
+
 export interface AuthData {
-    // login: string;
-    // password: string;
+    id: string;
+    email: string;
+    login: string;
+    password: string;
+    role: UserRole[];
     isAuth: boolean;
     isRegistration: boolean;
 }

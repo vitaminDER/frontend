@@ -11,8 +11,14 @@ import {BookItem} from "../../widgets/ui/BookItem";
 import {Registration} from "../../pages/Registration";
 import {Auth} from "../../pages/Auth";
 import {CircularProgress} from "@mui/material";
+import {useAuth} from "../store/hooks/useAuth.ts";
+import ProtectedRoute from "./ProtectedRoute.tsx";
+import {Admin} from "../../pages/Admin";
+import {UserRole} from "../store/reducers/authReducer/authSchema.ts";
 
 export const BrowserProvider = () => {
+    const {isAuth, role} = useAuth();
+
     return (
         <BrowserRouter future={{
             v7_startTransition: true,
@@ -27,7 +33,10 @@ export const BrowserProvider = () => {
                             <CircularProgress size="30px"/>}><BookItem/></Suspense>}></Route>
                     <Route path={PATH.AUTH} element={<Auth/>}/>
                     <Route path={PATH.REGISTRATION} element={<Registration/>}/>
-                    <Route path={PATH.PROFILE} element={<Profile/>}/>
+                    <Route path={PATH.PROFILE} element={<ProtectedRoute isAuth={isAuth}
+                                                                        redirectPath={PATH.AUTH}><Profile/></ProtectedRoute>}/>
+                    <Route path={PATH.ADMIN} element={<ProtectedRoute isAuth={isAuth && role.includes(UserRole.ADMIN)}
+                                                                      redirectPath={PATH.AUTH}><Admin/></ProtectedRoute>}/>
                     <Route path={PATH.NOT_FOUND} element={<NotFound/>}/>
                 </Route>
             </Routes>

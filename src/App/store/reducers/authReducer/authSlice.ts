@@ -3,9 +3,16 @@ import type {AuthSchema,} from "./authSchema.ts";
 import {FetchStatus} from "../../storeTypes.ts";
 import {fetchAuth} from "./services/fetchAuth.ts";
 import {fetchRegistration} from "./services/fetchRegistration.ts";
+import {UserRole} from "./authSchema.ts";
 
 const initialState: AuthSchema = {
     authData: {
+        id: '',
+        email: '',
+        login: '',
+        password: '',
+        role: [UserRole.ADMIN],
+        // role: ['user'],
         isAuth: false,
         isRegistration: false,
     },

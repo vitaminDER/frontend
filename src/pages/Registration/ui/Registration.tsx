@@ -1,12 +1,33 @@
 import {FormContainer, RegistrationWrapper} from "./styled.ts";
 import {Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField} from "@mui/material";
-import {useState} from "react";
+import {ChangeEvent, useMemo, useState} from "react";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 export const Registration = () => {
-
+    const [login, setLogin] = useState('');
+    const [pass, setPass] = useState('')
     const [showPassword, setShowPassword] = useState(false)
+
+    const handleLogin = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+        const valueLogin: string = e.target.value;
+        const regex = /^[a-zA-Zа-яА-ЯёЁ]+$/;
+        if (valueLogin.length <= 10 && regex.test(valueLogin)) {
+            setLogin(valueLogin)
+        }
+    };
+
+    const handlePass = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+        const valuePass: string = e.target.value;
+        if (valuePass.length <= 8) {
+            setPass(valuePass);
+        }
+    }
+
+    const errorPass = useMemo(() => {
+        return pass.length !== 8;
+    }, [pass.length])
+
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -23,15 +44,18 @@ export const Registration = () => {
             <FormContainer>
                 <h3>Регистрация</h3>
                 <TextField
+                    value={login}
+                    onChange={(e) => handleLogin(e)}
                     id="outlined-multiline-flexible"
                     label="login"
-                    multiline
-                    maxRows={4}
                     sx={{width: '450px'}}
                 />
                 <FormControl sx={{width: '450px'}} variant="outlined">
                     <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
                     <OutlinedInput
+                        value={pass}
+                        onChange={(e) => handlePass(e)}
+                        error={errorPass}
                         id="outlined-adornment-password"
                         type={showPassword ? 'text' : 'password'}
                         endAdornment={
