@@ -14,7 +14,10 @@ import {CircularProgress} from "@mui/material";
 
 export const BrowserProvider = () => {
     return (
-        <BrowserRouter>
+        <BrowserRouter future={{
+            v7_startTransition: true,
+            v7_relativeSplatPath: true,
+        }}>
             <Routes>
                 <Route path={PATH.BASE} element={<AppContent/>}>
                     <Route index path={PATH.BASE} element={<Main/>}/>

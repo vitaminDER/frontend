@@ -1,5 +1,5 @@
 export const BooksSvg = () => <svg width="50px" height="50px" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"
-                                   xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                   xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                                    className="iconify iconify--noto" preserveAspectRatio="xMidYMid meet">
 
     <path
@@ -95,7 +95,7 @@ export const BooksSvg = () => <svg width="50px" height="50px" viewBox="0 0 128 1
 
         </path>
 
-        <path fill="none" stroke="#424242" stroke-width="2.071" stroke-miterlimit="10" d="M45.21 83.7L19.1 46.76">
+        <path fill="none" stroke="#424242" strokeWidth="2.071" strokeMiterlimit="10" d="M45.21 83.7L19.1 46.76">
 
         </path>
 
