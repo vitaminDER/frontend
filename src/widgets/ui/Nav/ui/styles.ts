@@ -5,6 +5,7 @@ export const NavWrapper = styled.div`
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 10;
     width: 100%;
     display: flex;
     flex-direction: column;

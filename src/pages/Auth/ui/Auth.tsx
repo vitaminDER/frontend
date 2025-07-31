@@ -1,6 +1,6 @@
 import {AuthWrapper, FormContainer} from "./styled.ts";
 import {Link, Navigate} from "react-router-dom";
-import {useState} from "react";
+import {ReactNode, useState} from "react";
 import {Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField} from "@mui/material";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
@@ -35,8 +35,6 @@ export const Auth = () => {
                 <TextField
                     id="outlined-multiline-flexible"
                     label="login"
-                    multiline
-                    maxRows={4}
                     sx={{width: '450px'}}
                 />
                 <FormControl sx={{m: 1, width: '450px'}} variant="outlined">
@@ -55,15 +53,15 @@ export const Auth = () => {
                                     onMouseUp={handleMouseUpPassword}
                                     edge="end"
                                 >
-                                    {showPassword ? <VisibilityOffIcon/> : <VisibilityIcon/>}
+                                    <>{showPassword ? <VisibilityOffIcon/> : <VisibilityIcon/>}</>
                                 </IconButton>
-                            </InputAdornment>
+                            </InputAdornment> as ReactNode
                         }
                         label="Password"
                     />
                 </FormControl>
 
-                <Button sx={{width: '450px'}}
+                <Button sx={{width: '450px', height: '56px'}}
                         variant="contained"
                         onClick={() => {
                         }}

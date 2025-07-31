@@ -1,6 +1,6 @@
 import {FormContainer, RegistrationWrapper} from "./styled.ts";
 import {Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField} from "@mui/material";
-import {ChangeEvent, useMemo, useState} from "react";
+import {ChangeEvent, ReactNode, useMemo, useState} from "react";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
@@ -69,9 +69,9 @@ export const Registration = () => {
                                     onMouseUp={handleMouseUpPassword}
                                     edge="end"
                                 >
-                                    {showPassword ? <VisibilityOffIcon/> : <VisibilityIcon/>}
+                                    <>{showPassword ? <VisibilityOffIcon/> : <VisibilityIcon/>}</>
                                 </IconButton>
-                            </InputAdornment>
+                            </InputAdornment> as ReactNode
                         }
                         label="Password"
                     />
@@ -92,9 +92,9 @@ export const Registration = () => {
                                     onMouseUp={handleMouseUpPassword}
                                     edge="end"
                                 >
-                                    {showPassword ? <VisibilityOffIcon/> : <VisibilityIcon/>}
+                                    <>{showPassword ? <VisibilityOffIcon/> : <VisibilityIcon/>}</>
                                 </IconButton>
-                            </InputAdornment>
+                            </InputAdornment> as ReactNode
                         }
                         label="Confirm password"
                     />
