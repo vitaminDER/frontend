@@ -1,6 +1,6 @@
 import {FormContainer, RegistrationWrapper} from "./styled.ts";
 import {Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField} from "@mui/material";
-import {ChangeEvent, ReactNode, useMemo, useState} from "react";
+import {ChangeEvent, ReactNode, useMemo, useState, MouseEvent} from "react";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
@@ -31,11 +31,11 @@ export const Registration = () => {
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
-    const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const handleMouseDownPassword = (event: MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
     };
 
-    const handleMouseUpPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const handleMouseUpPassword = (event: MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
     };
 
