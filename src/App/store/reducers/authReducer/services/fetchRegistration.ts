@@ -4,8 +4,9 @@ import {api} from "../../../../../utils/api/api.ts";
 import {QUERY} from "../../../backend/constants.ts";
 import type {AxiosError} from "axios";
 
-interface RequestRegistration {
+export interface RequestRegistration {
     login: string;
+    email: string;
     password: string;
 }
 
@@ -17,7 +18,7 @@ export const fetchRegistration = createAsyncThunk<ResponseRegistration, RequestR
     rejectValue: RequestError
 }>("fetchRegistration", async (params, thunkAPI) => {
     try {
-        const response = await api.post<ResponseRegistration>(QUERY.getItemBookUrl, params);
+        const response = await api.post<ResponseRegistration>(QUERY.postAuthUrl, params);
         return response.data;
     } catch (e) {
         const error = e as AxiosError<RequestError>
