@@ -62,16 +62,6 @@ export const Registration = () => {
         event.preventDefault();
     };
 
-    // const handleSubmit = () => {
-    //     const requestParams: RequestRegistration = {
-    //         login: login.value,
-    //         email: email.value,
-    //         password: pass.value,
-    //     }
-    //     dispatch(fetchRegistration(requestParams));
-    // }
-
-
     const validateForm = useCallback(() => {
         const valLogin = login.value?.length >= 4 && login.value?.length <= 10;
         const hasNonLetters = !/[^a-zA-Zа-яА-ЯёЁ]/.test(login.value);
@@ -107,9 +97,8 @@ export const Registration = () => {
             setPassConfirm({...passConfirm, error: 'Пароли не совпадают'});
         }
 
-
         const isValidForm = hasNonLetters && valLogin && valEmail && !!email.value && valPass;
-        console.log(hasNonLetters, valLogin, valEmail, !!email.value, valPass);
+
         if (isValidForm) {
             const requestParams: RequestRegistration = {
                 login: login.value,
@@ -117,7 +106,6 @@ export const Registration = () => {
                 password: pass.value,
             }
             dispatch(fetchRegistration(requestParams));
-            // handleSubmit();
         }
     }, [dispatch, email, login, pass, passConfirm]);
 
