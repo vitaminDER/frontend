@@ -1,7 +1,20 @@
 import {createSlice} from "@reduxjs/toolkit";
-import type {BooksScheme} from "./booksSheme.ts";
+import type {BooksScheme} from "./booksScheme.ts";
 import {FetchStatus} from "../../storeTypes.ts";
 import {fetchBooks} from "./services.ts";
+
+
+// const mockBooks: IBooks[] = [
+//     {
+//         id: '1',
+//         title: 'Воина и мир',
+//         author: 'Толстой Л.Н.'
+//     }, {
+//         id: '2',
+//         title: 'Хоббит',
+//         author: 'Толкин Р.Р.'
+//     },
+// ]
 
 const initialState: BooksScheme = {
     books: [],
@@ -25,6 +38,9 @@ const booksSlice = createSlice<BooksScheme>({
             .addCase(fetchBooks.rejected, (state, action) => {
                 state.errorBooks = action.payload?.message?.toUpperCase()
                 state.loadingBooks = FetchStatus.REJECTED;
+                // console.log(action.payload)
+                // state.books = mockBooks;
+                // state.loadingBooks = FetchStatus.SUCCESS;
             });
     },
 });

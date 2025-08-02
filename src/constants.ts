@@ -1,5 +1,11 @@
 export enum PATH {
     BASE = "/",
-    TEST_PAGER = "test_page",
+    BOOKS = "/books",
+    REGISTRATION = "/registration",
+    AUTH = "/auth",
+    BOOK = "/book",
+    ADMIN = "/admin",
+    BOOKITEM = "/book/:id",
+    PROFILE = "profile",
     NOT_FOUND = "*",
 }

@@ -1,18 +1,42 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {PATH} from "../../constants.ts";
-import {Books} from "../../pages/Books/ui";
 import * as React from "react";
+import {Suspense} from "react";
 import {AppContent} from "../AppContent.tsx";
-import {TestPage} from "../../pages/TestPage/TestPage.tsx";
+import {Profile} from "../../pages/Profile/Profile.tsx";
 import {NotFound} from "../../pages/NotFound/ui/NotFound.tsx";
+import {Main} from "../../pages/Main";
+import {Books} from "../../pages/Books";
+import {BookItem} from "../../widgets/ui/BookItem";
+import {Registration} from "../../pages/Registration";
+import {Auth} from "../../pages/Auth";
+import {CircularProgress} from "@mui/material";
+import {useAuth} from "../store/hooks/useAuth.ts";
+import ProtectedRoute from "./ProtectedRoute.tsx";
+import {Admin} from "../../pages/Admin";
+import {UserRole} from "../store/reducers/authReducer/authSchema.ts";
 
 export const BrowserProvider = () => {
+    const {isAuth, role} = useAuth();
+
     return (
-        <BrowserRouter>
+        <BrowserRouter future={{
+            v7_startTransition: true,
+            v7_relativeSplatPath: true,
+        }}>
             <Routes>
                 <Route path={PATH.BASE} element={<AppContent/>}>
-                    <Route index path={PATH.BASE} element={<Books/>}/>
-                    <Route path={PATH.TEST_PAGER} element={<TestPage/>}/>
+                    <Route index path={PATH.BASE} element={<Main/>}/>
+                    <Route index path={PATH.BOOKS} element={<Books/>}/>
+                    <Route path={PATH.BOOKITEM} element={
+                        <Suspense fallback={
+                            <CircularProgress size="30px"/>}><BookItem/></Suspense>}></Route>
+                    <Route path={PATH.AUTH} element={<Auth/>}/>
+                    <Route path={PATH.REGISTRATION} element={<Registration/>}/>
+                    <Route path={PATH.PROFILE} element={<ProtectedRoute isAuth={isAuth}
+                                                                        redirectPath={PATH.AUTH}><Profile/></ProtectedRoute>}/>
+                    <Route path={PATH.ADMIN} element={<ProtectedRoute isAuth={isAuth && role.includes(UserRole.ADMIN)}
+                                                                      redirectPath={PATH.AUTH}><Admin/></ProtectedRoute>}/>
                     <Route path={PATH.NOT_FOUND} element={<NotFound/>}/>
                 </Route>
             </Routes>

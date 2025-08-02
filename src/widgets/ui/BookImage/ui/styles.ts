@@ -1,0 +1,88 @@
+import styled from "styled-components";
+
+interface BookImage {
+    width?: string;
+    height?: string;
+}
+
+export const BoxBook = styled.div<BookImage>`
+    min-width: ${({width}) => width ? width : '300px'};
+    height: ${({height}) => height ? height : '400px'};
+    display: flex;
+    flex-direction: row;
+    background-color: #747bff;
+    border-radius: 8px;
+    box-shadow: 10px 9px 15px 2px rgba(0, 0, 0, 0.31);
+    -webkit-box-shadow: 10px 9px 15px 2px rgba(0, 0, 0, 0.31);
+    -moz-box-shadow: 10px 9px 15px 2px rgba(0, 0, 0, 0.31);
+`;
+export const BoxLeft = styled.div`
+    width: 4px;
+    height: 400px;
+    background-color: #646bf3;
+    border-radius: 8px;
+`;
+export const BoxLeftOne = styled.div`
+    width: 10px;
+    height: 400px;
+    background-color: #747bff;
+    border-radius: 8px;
+`;
+export const BoxRight = styled.div`
+    width: 300px;
+    height: 400px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+    background-color: #747bff;
+    border-radius: 8px;
+    color: linear-gradient(to right, #FFD700, #FFC72C, #FFFACD, #FFDAB9);
+`;
+
+export const ContainerLine = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+`;
+export const LineHorizontal = styled.div`
+    width: 150px;
+    height: 2px;
+    background-color: #d2f5f0;
+`;
+
+export const RombBox = styled.div`
+    width: 8px;
+    height: 8px;
+    rotate: 45deg;
+    background-color: #fff;
+`;
+export const RombBoxSmall = styled.div`
+    width: 4px;
+    height: 4px;
+    rotate: 45deg;
+    background-color: #fff;
+`;
+
+export const TextName = styled.h3`
+    background: linear-gradient(to right, #FFD700, #FFC72C, #FFFACD, #FFDAB9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+`;
+export const TextTitle = styled.h3`
+    //background: linear-gradient(to right, #cfc09f 14%, #634f2c 16%, #cfc09f 20%, #cfc09f 22%, #ffecb3 40%, #3a2c0f 84%);
+    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+    radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #8d7131 62.5%, #5d4a1f 100%);
+    -webkit-background-clip: text;
+    //box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 16px 20px rgba(0, 0, 0, 0.2);
+    background-clip: text;
+    color: transparent;
+`;
+
+

@@ -1,14 +1,10 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {api} from "../../../../utils/api/api.ts";
 import {QUERY} from "../../backend/constants.ts";
-import type {IBooks} from "./booksSheme.ts";
+import type {IBooks} from "./booksScheme.ts";
 import type {RequestError} from "../../storeTypes.ts";
 import type {AxiosError} from "axios";
 
-export interface FetchBooksRequest {
-    all: string;
-
-}
 
 export const fetchBooks = createAsyncThunk<IBooks[], void, {
     rejectValue: RequestError

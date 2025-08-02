@@ -1,8 +1,9 @@
 import {useEffect, useMemo} from "react";
-import {Book} from "../../../Book.tsx";
 import {useAppDispatch, useAppSelector} from "../../../App/store/storeHooks.ts";
 import {getBooksSelector, getErrorBooksSelector} from "../../../App/store/reducers/booksReducer/selectors.ts";
 import {fetchBooks} from "../../../App/store/reducers/booksReducer/services.ts";
+import {BooksListContainer, BooksWrapper} from "./styles.ts";
+import {Book} from '../../../widgets/ui/Book'
 
 export const Books = () => {
     const dispatch = useAppDispatch();
@@ -15,7 +16,7 @@ export const Books = () => {
 
     const booksList = useMemo(() => {
         return allBooks.map((el) => {
-            return <Book key={el.id} book={el} books={allBooks}/>;
+            return <Book key={el.id} book={el}/>;
         });
     }, [allBooks]);
 
@@ -24,20 +25,11 @@ export const Books = () => {
     }
 
     return (
-        <div>
-            <div style={{color: "#000"}}>
-            </div>
-            <div
-                style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    gap: "5px",
-                    color: "#000",
-                    flexWrap: "wrap",
-                }}
-            >
-                {booksList.length === 0 ? 'нет книг' : booksList}
-            </div>
-        </div>
+
+        <BooksWrapper>
+            <BooksListContainer>
+                <>{booksList.length === 0 ? <div>нет книг</div> : booksList}</>
+            </BooksListContainer>
+        </BooksWrapper>
     );
 };

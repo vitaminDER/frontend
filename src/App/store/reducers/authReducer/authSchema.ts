@@ -1,11 +1,22 @@
-import type {Nullable} from "../../storeTypes.ts";
+import {FetchStatus, Nullable} from "../../storeTypes.ts";
 
-export interface IAuthData {
+export enum UserRole {
+    ADMIN = 'admin',
+    USER = 'user',
+}
+
+export interface AuthData {
+    id: string;
+    email: string;
     login: string;
-    password: string
+    password: string;
+    role: UserRole[];
+    isAuth: boolean;
+    isRegistration: boolean;
 }
 
 export interface AuthSchema {
-    login: Nullable<string>;
-    password: Nullable<string>
+    authData: AuthData;
+    loadingAuth: FetchStatus;
+    errorAuth: Nullable<string>
 }

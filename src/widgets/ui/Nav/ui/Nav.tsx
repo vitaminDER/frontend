@@ -1,44 +1,37 @@
-import {LinkContainer, NavContainer, NavWrapper} from "./styles.ts";
-import {Avatar, Button} from "@mui/material";
-import {JSX, useState} from "react";
-import {Link} from "react-router-dom";
+import {LinkContainer, NavContainer, NavWrapper, RightContainer} from "./styles.ts";
+import {Button} from "@mui/material";
+import {JSX} from "react";
+import {Link, useNavigate} from "react-router-dom";
 import {PATH} from "../../../../constants.ts";
-import {LibLogo} from "../../../../assets/LibLogo.tsx";
+import {BooksSvg} from "../../../../assets/BooksSvg.tsx";
+import {useAuth} from "../../../../App/store/hooks/useAuth.ts";
+import {UserRole} from "../../../../App/store/reducers/authReducer/authSchema.ts";
 
 export const Nav = (): JSX.Element => {
-    const [isAuth, setIsAuth] = useState(true);
+    const {isAuth, role} = useAuth();
+
+    const navigate = useNavigate();
 
     return (
         <NavWrapper>
             <NavContainer>
                 <LinkContainer>
-                    <Avatar sx={{bgcolor: "rgba(6,227,234,0.12)"}}>
-                        <LibLogo/>
-                    </Avatar>
-                    <Link to={PATH.BASE}>Главная</Link>
-                    <Link to={PATH.TEST_PAGER}>TestPage</Link>
+                    <Link to={PATH.BASE}><BooksSvg/></Link>
+                    <Link to={PATH.BOOKS}>Книги</Link>
                 </LinkContainer>
-                {isAuth ? (
-                    <Button
-                        variant="outlined"
-                        size="small"
-                        onClick={() => {
-                            setIsAuth((pref) => !pref);
-                        }}
-                    >
-                        Вход
-                    </Button>
-                ) : (
-                    <Button
-                        variant="outlined"
-                        size="small"
-                        onClick={() => {
-                            setIsAuth((pref) => !pref);
-                        }}
-                    >
-                        Регистрация
-                    </Button>
-                )}
+                <RightContainer><Button
+                    sx={{width: '100px'}}
+                    variant="outlined"
+                    size="small"
+                    onClick={() => {
+                        navigate(PATH.AUTH)
+                    }}
+                >
+                    Вход
+                </Button>
+                    <Link to={PATH.PROFILE}>Профиль</Link>
+                    {isAuth && role.includes(UserRole.ADMIN) && <Link to={PATH.ADMIN}>Admin</Link>}
+                </RightContainer>
             </NavContainer>
         </NavWrapper>
     );

@@ -3,17 +3,23 @@ import {booksSliceReducer} from "./reducers/booksReducer/booksSlice.ts";
 import storage from 'redux-persist/lib/storage'
 import {FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE,} from 'redux-persist';
 import {authSliceReducer} from "./reducers/authReducer/authSlice.ts";
+import {itemBookSliceReducer} from "./reducers/bookItemReducer/bookSlice.ts";
+import {reviewsSliceReducer} from "./reducers/reviewsReducer/reviewsSlice.ts";
+import {userPreferenceSliceReducer} from "./reducers/userPreference/userPreferenceSlice.ts";
 
 
 const persistConfig = {
-    key: 'authPreference',
+    key: 'userPreference',
     storage,
-    whitelist: ['authPreference']
+    whitelist: ['userPreference']
 }
 
 export const rootReducer = combineReducers({
     books: booksSliceReducer,
-    authPreference: authSliceReducer
+    bookItem: itemBookSliceReducer,
+    reviews: reviewsSliceReducer,
+    authPreference: authSliceReducer,
+    userPreference: userPreferenceSliceReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
