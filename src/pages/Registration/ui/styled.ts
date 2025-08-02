@@ -11,7 +11,7 @@ export const RegistrationWrapper = styled.div`
 
 export const FormContainer = styled.div`
     width: 550px;
-    height: 450px;
+    height: 520px;
     display: flex;
     flex-direction: column;
     align-items: center;
