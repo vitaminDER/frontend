@@ -1,16 +1,31 @@
 import {AuthWrapper, FormContainer} from "./styled.ts";
 import {Link, Navigate} from "react-router-dom";
-import {ReactNode, useState} from "react";
-import {Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField} from "@mui/material";
+import {ChangeEvent, ReactNode, useState} from "react";
+import {Button, IconButton, InputAdornment, TextField} from "@mui/material";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import {PATH} from "../../../constants.ts";
 import {useAppSelector} from "../../../App/store/storeHooks.ts";
 import {getAuth} from "../../../App/store/reducers/authReducer/authSelectors.ts";
+import type {FormStates} from "../../Registration/ui/interface.ts";
 
 export const Auth = () => {
     const {isAuth} = useAppSelector(getAuth);
 
+    const [login, setLogin] = useState<FormStates>({value: '', error: ''});
+    const [pass, setPass] = useState<FormStates>({value: '', error: ''});
+
+    const handleLogin = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+        const valueLogin: string = e.target.value;
+        setLogin({...login, value: valueLogin, error: ''})
+    };
+
+    const handlePass = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+        const valuePass: string = e.target.value;
+        if (valuePass.length <= 8) {
+            setPass({...pass, value: valuePass, error: ''});
+        }
+    };
 
     const [showPassword, setShowPassword] = useState(false)
 
@@ -33,17 +48,24 @@ export const Auth = () => {
             <FormContainer>
                 <h3>Авторизация</h3>
                 <TextField
+                    value={login.value}
+                    onChange={(e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => handleLogin(e)}
                     id="outlined-multiline-flexible"
-                    label="login"
-                    sx={{width: '450px'}}
+                    label="Login"
+                    sx={{width: '500px'}}
                 />
-                <FormControl sx={{m: 1, width: '450px'}} variant="outlined">
-                    <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-                    <OutlinedInput
-                        id="outlined-adornment-password"
-                        type={showPassword ? 'text' : 'password'}
-                        endAdornment={
-                            <InputAdornment position="end">
+                <TextField
+                    type={showPassword ? 'text' : 'password'}
+                    value={pass.value}
+                    helperText={pass.error}
+                    error={!!pass.error}
+                    onChange={(e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => handlePass(e)}
+                    id="outlined-multiline-flexible"
+                    label="Password"
+                    sx={{width: '500px'}}
+                    slotProps={{
+                        input: {
+                            endAdornment: <InputAdornment position="end">
                                 <IconButton
                                     aria-label={
                                         showPassword ? 'hide the password' : 'display the password'
@@ -55,13 +77,11 @@ export const Auth = () => {
                                 >
                                     <>{showPassword ? <VisibilityOffIcon/> : <VisibilityIcon/>}</>
                                 </IconButton>
-                            </InputAdornment> as ReactNode
-                        }
-                        label="Password"
-                    />
-                </FormControl>
-
-                <Button sx={{width: '450px', height: '56px'}}
+                            </InputAdornment> as ReactNode,
+                        },
+                    }}
+                />
+                <Button sx={{width: '500px', height: '50px'}}
                         variant="contained"
                         onClick={() => {
                         }}
