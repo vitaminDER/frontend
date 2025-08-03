@@ -1,5 +1,5 @@
 import type {BookItemScheme} from "./bookItemSheme.ts";
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, SliceCaseReducers} from "@reduxjs/toolkit";
 import {FetchStatus} from "@/App/store/storeTypes.ts";
 import {fetchItemBook} from "@/App/store/reducers/bookItemReducer/services/fetchItemBook.ts";
 import {deleteItemBook} from "@/App/store/reducers/bookItemReducer/services/deleteItemBook.ts";
@@ -11,7 +11,7 @@ const initialState: BookItemScheme = {
     errorBooks: null,
 };
 
-const bookItemSlice = createSlice<BookItemScheme>({
+const bookItemSlice = createSlice<BookItemScheme, SliceCaseReducers<BookItemScheme>>({
     name: "bookItem",
     initialState,
     reducers: {},
@@ -25,7 +25,7 @@ const bookItemSlice = createSlice<BookItemScheme>({
                 state.loadingBooks = FetchStatus.SUCCESS;
             })
             .addCase(fetchItemBook.rejected, (state, action) => {
-                state.errorBooks = action.payload?.message?.toUpperCase()
+                state.errorBooks = action.payload?.message
                 state.loadingBooks = FetchStatus.REJECTED;
             });
         builder
@@ -37,7 +37,7 @@ const bookItemSlice = createSlice<BookItemScheme>({
                 state.loadingBooks = FetchStatus.SUCCESS;
             })
             .addCase(deleteItemBook.rejected, (state, action) => {
-                state.errorBooks = action.payload?.message?.toUpperCase()
+                state.errorBooks = action.payload?.message
                 state.loadingBooks = FetchStatus.REJECTED;
             });
     },

@@ -1,5 +1,5 @@
-import {BrowserRouter, Route, Routes} from "react-router-dom";
 import * as React from "react";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Suspense} from "react";
 import {CircularProgress} from "@mui/material";
 import {PATH} from "@/constants.ts";

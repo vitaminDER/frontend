@@ -18,5 +18,7 @@ export interface AuthData {
 export interface AuthSchema {
     authData: AuthData;
     loadingAuth: FetchStatus;
-    errorAuth: Nullable<string>
+    loadingRegistered: FetchStatus;
+    errorAuth: Nullable<string> | undefined;
+    errorRegistered: Nullable<string> | undefined;
 }

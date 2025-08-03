@@ -1,4 +1,4 @@
-import {createSlice,} from "@reduxjs/toolkit";
+import {createSlice, SliceCaseReducers,} from "@reduxjs/toolkit";
 import {FetchStatus} from "@/App/store/storeTypes.ts";
 import {fetchRegistration} from "@/App/store/reducers/authReducer/services/fetchRegistration.ts";
 import {AuthSchema, UserRole} from "@/App/store/reducers/authReducer/authSchema.ts";
@@ -11,15 +11,16 @@ const initialState: AuthSchema = {
         login: '',
         password: '',
         role: [UserRole.ADMIN],
-        // role: ['user'],
         isAuth: false,
         isRegistered: false,
     },
     loadingAuth: FetchStatus.IDLE,
     errorAuth: null,
+    loadingRegistered: FetchStatus.IDLE,
+    errorRegistered: null,
 };
 
-export const authSlice = createSlice<AuthSchema>({
+export const authSlice = createSlice<AuthSchema, SliceCaseReducers<AuthSchema>>({
     name: "auth",
     initialState,
     reducers: {
@@ -42,15 +43,15 @@ export const authSlice = createSlice<AuthSchema>({
             });
         builder
             .addCase(fetchRegistration.pending, (state) => {
-                state.loadingAuth = FetchStatus.PENDING;
+                state.loadingRegistered = FetchStatus.PENDING;
             })
             .addCase(fetchRegistration.fulfilled, (state, action) => {
                 state.authData.isRegistered = action.payload.isRegistered;
-                state.loadingAuth = FetchStatus.SUCCESS;
+                state.loadingRegistered = FetchStatus.SUCCESS;
             })
             .addCase(fetchRegistration.rejected, (state, action) => {
-                state.errorAuth = action.payload?.message?.toUpperCase()
-                state.loadingAuth = FetchStatus.REJECTED;
+                state.errorRegistered = action.payload?.message?.toUpperCase()
+                state.loadingRegistered = FetchStatus.REJECTED;
             });
     }
 });

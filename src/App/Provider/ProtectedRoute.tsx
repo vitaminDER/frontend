@@ -1,8 +1,14 @@
 import {Navigate} from 'react-router-dom';
-import * as React from "react";
+import {ReactNode} from "react";
+
+interface ProtectedRouteProps {
+    children: ReactNode;
+    isAuth: boolean;
+    redirectPath: string;
+}
 
 
-const ProtectedRoute = ({children, isAuth, redirectPath}) => {
+const ProtectedRoute = ({children, isAuth, redirectPath}: ProtectedRouteProps) => {
     if (!isAuth) {
         return <Navigate to={redirectPath}/>
     }
