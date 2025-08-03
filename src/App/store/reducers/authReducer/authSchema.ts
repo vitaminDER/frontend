@@ -12,7 +12,7 @@ export interface AuthData {
     password: string;
     role: UserRole[];
     isAuth: boolean;
-    isRegistration: boolean;
+    isRegistered: boolean;
 }
 
 export interface AuthSchema {

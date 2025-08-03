@@ -2,7 +2,7 @@ import {
     BoxBook,
     BoxLeft,
     BoxLeftOne,
-    BoxRight,
+    BoxRight, BoxWrapper,
     ContainerLine,
     LineHorizontal,
     RombBox,
@@ -18,7 +18,7 @@ interface BookImageProps {
 export const BookImage = (props: BookImageProps) => {
     const {author = 'author', bookName = 'bookName'} = props
     return (
-        <BoxBook>
+        <BoxWrapper><BoxBook>
             <BoxLeftOne/>
             <BoxLeft/>
             <BoxRight>
@@ -32,6 +32,6 @@ export const BookImage = (props: BookImageProps) => {
                     <RombBoxSmall/>
                 </ContainerLine>
             </BoxRight>
-        </BoxBook>
+        </BoxBook></BoxWrapper>
     );
 };

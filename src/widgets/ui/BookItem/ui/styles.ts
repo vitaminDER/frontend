@@ -21,7 +21,7 @@ export const InfoBook = styled.div`
 `;
 
 export const ButtonBlock = styled.div`
-    width: 300px;
+    width: 220px;
     display: flex;
     flex-direction: row;
     align-items: center;

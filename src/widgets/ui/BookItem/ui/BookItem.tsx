@@ -32,9 +32,9 @@ export const BookItem = () => {
         dispatch(fetchItemBook({id: bookId}))
     }, []);
 
-    // if (errorBooks) {
-    //     return <div>{errorBooks}</div>
-    // }
+    if (errorBooks) {
+        return <div>{errorBooks}</div>
+    }
 
     return (
         <InfoBookWrapper>
@@ -49,8 +49,6 @@ export const BookItem = () => {
                     <div>Описание: {book?.description}</div>
                     <div> Жанр: {genreList}</div>
                     <div>Рейтинг: {book?.rating}</div>
-                    {/*<DeleteIcon onClick={() => deleteHandler(bookId)}/>*/}
-
                 </InfoBook>
             </InfoBookContainer>
             <ButtonBlock>

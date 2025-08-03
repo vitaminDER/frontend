@@ -11,7 +11,7 @@ export interface RequestRegistration {
 }
 
 interface ResponseRegistration {
-    isRegistration: boolean;
+    isRegistered: boolean;
 }
 
 export const fetchRegistration = createAsyncThunk<ResponseRegistration, RequestRegistration, {

@@ -32,6 +32,7 @@ const booksSlice = createSlice<BooksScheme>({
                 state.loadingBooks = FetchStatus.PENDING;
             })
             .addCase(fetchBooks.fulfilled, (state, action) => {
+                // console.log(action.payload)
                 state.books = action.payload;
                 state.loadingBooks = FetchStatus.SUCCESS;
             })

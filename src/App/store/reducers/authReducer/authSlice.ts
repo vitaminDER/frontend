@@ -14,7 +14,7 @@ const initialState: AuthSchema = {
         role: [UserRole.ADMIN],
         // role: ['user'],
         isAuth: false,
-        isRegistration: false,
+        isRegistered: false,
     },
     loadingAuth: FetchStatus.IDLE,
     errorAuth: null,
@@ -46,7 +46,7 @@ export const authSlice = createSlice<AuthSchema>({
                 state.loadingAuth = FetchStatus.PENDING;
             })
             .addCase(fetchRegistration.fulfilled, (state, action) => {
-                state.authData.isRegistration = action.payload.isRegistration;
+                state.authData.isRegistered = action.payload.isRegistration;
                 state.loadingAuth = FetchStatus.SUCCESS;
             })
             .addCase(fetchRegistration.rejected, (state, action) => {

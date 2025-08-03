@@ -16,7 +16,7 @@ import {PATH} from "../../../constants.ts";
 
 export const Registration = () => {
     const dispatch = useAppDispatch();
-    const {isRegistration} = useAuth();
+    const {isRegistered} = useAuth();
     const [login, setLogin] = useState<FormStates>({value: '', error: ''});
     const [email, setEmail] = useState<FormStates>({value: '', error: ''});
     const [pass, setPass] = useState<FormStates>({value: '', error: ''});
@@ -109,7 +109,7 @@ export const Registration = () => {
         }
     }, [dispatch, email, login, pass, passConfirm]);
 
-    if (isRegistration) {
+    if (isRegistered) {
         return <Navigate to={PATH.AUTH}/>
     }
 
