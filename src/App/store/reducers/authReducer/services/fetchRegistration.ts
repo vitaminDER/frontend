@@ -23,7 +23,7 @@ export const fetchRegistration = createAsyncThunk<ResponseRegistration, RequestR
     } catch (e) {
         const error = e as AxiosError<RequestError>
         if (error.response?.status === 400 && error.response?.data) {
-            return thunkAPI.rejectWithValue(error?.response?.data)
+            return thunkAPI?.rejectWithValue(error?.response?.data)
         }
         return thunkAPI.rejectWithValue({
             code: 111,

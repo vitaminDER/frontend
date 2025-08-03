@@ -46,7 +46,7 @@ export const authSlice = createSlice<AuthSchema>({
                 state.loadingAuth = FetchStatus.PENDING;
             })
             .addCase(fetchRegistration.fulfilled, (state, action) => {
-                state.authData.isRegistered = action.payload.isRegistration;
+                state.authData.isRegistered = action.payload.isRegistered;
                 state.loadingAuth = FetchStatus.SUCCESS;
             })
             .addCase(fetchRegistration.rejected, (state, action) => {
