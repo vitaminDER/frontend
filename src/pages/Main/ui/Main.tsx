@@ -1,5 +1,5 @@
-import {PATH} from "../../../constants.ts";
 import {Link} from "react-router-dom";
+import {PATH} from "@/constants.ts";
 
 export const Main = () => {
     return (

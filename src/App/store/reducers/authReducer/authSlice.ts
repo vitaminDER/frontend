@@ -1,9 +1,8 @@
 import {createSlice,} from "@reduxjs/toolkit";
-import type {AuthSchema,} from "./authSchema.ts";
-import {FetchStatus} from "../../storeTypes.ts";
-import {fetchAuth} from "./services/fetchAuth.ts";
-import {fetchRegistration} from "./services/fetchRegistration.ts";
-import {UserRole} from "./authSchema.ts";
+import {FetchStatus} from "@/App/store/storeTypes.ts";
+import {fetchRegistration} from "@/App/store/reducers/authReducer/services/fetchRegistration.ts";
+import {AuthSchema, UserRole} from "@/App/store/reducers/authReducer/authSchema.ts";
+import {fetchAuth} from "@/App/store/reducers/authReducer/services/fetchAuth.ts";
 
 const initialState: AuthSchema = {
     authData: {

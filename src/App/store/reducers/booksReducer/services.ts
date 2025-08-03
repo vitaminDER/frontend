@@ -1,9 +1,9 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {api} from "../../../../utils/api/api.ts";
-import {QUERY} from "../../backend/constants.ts";
-import type {IBooks} from "./booksScheme.ts";
-import type {RequestError} from "../../storeTypes.ts";
 import type {AxiosError} from "axios";
+import {api} from "@/utils/api/api.ts";
+import {QUERY} from "@/App/store/backend/constants.ts";
+import {IBooks} from "@/App/store/reducers/booksReducer/booksScheme.ts";
+import {RequestError} from "@/App/store/storeTypes.ts";
 
 
 export const fetchBooks = createAsyncThunk<IBooks[], void, {

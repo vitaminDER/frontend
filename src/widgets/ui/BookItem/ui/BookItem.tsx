@@ -1,15 +1,15 @@
 import {useNavigate, useParams} from "react-router-dom";
-import {useAppDispatch, useAppSelector} from "../../../../App/store/storeHooks.ts";
 import {useEffect} from "react";
-import {fetchItemBook} from "../../../../App/store/reducers/bookItemReducer/services/fetchItemBook.ts";
-import {getItemBookSelector} from "../../../../App/store/reducers/bookItemReducer/selectors.ts";
 import {ButtonBlock, ButtonContainer, InfoBook, InfoBookContainer, InfoBookWrapper} from "./styles.ts";
-import {BookImage} from "../../BookImage";
-import {Rating} from "../../Rating/ui/Rating.tsx";
-import {PATH} from "../../../../constants.ts";
-import {deleteItemBook} from "../../../../App/store/reducers/bookItemReducer/services/deleteItemBook.ts";
-import {Accordion} from "../../Accordion";
 import {Button} from "@mui/material";
+import {useAppDispatch, useAppSelector} from "@/App/store/storeHooks.ts";
+import {getItemBookSelector} from "@/App/store/reducers/bookItemReducer/selectors.ts";
+import {deleteItemBook} from "@/App/store/reducers/bookItemReducer/services/deleteItemBook.ts";
+import {PATH} from "@/constants.ts";
+import {fetchItemBook} from "@/App/store/reducers/bookItemReducer/services/fetchItemBook.ts";
+import {BookImage} from "@/widgets/ui/BookImage";
+import {Accordion} from "@/widgets/ui/Accordion";
+import {Rating} from "@/widgets/ui/Rating/ui/Rating.tsx";
 
 export const BookItem = () => {
     const {id} = useParams();

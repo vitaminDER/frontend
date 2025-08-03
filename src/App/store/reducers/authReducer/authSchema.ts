@@ -1,4 +1,4 @@
-import {FetchStatus, Nullable} from "../../storeTypes.ts";
+import {FetchStatus, Nullable} from "@/App/store/storeTypes.ts";
 
 export enum UserRole {
     ADMIN = 'admin',

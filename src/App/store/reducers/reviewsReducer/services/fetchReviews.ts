@@ -1,9 +1,9 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import type {RequestError} from "../../../storeTypes.ts";
-import {api} from "../../../../../utils/api/api.ts";
-import {QUERY} from "../../../backend/constants.ts";
 import type {AxiosError} from "axios";
-import type {Reviews} from "../reviewsScheme.ts";
+import {RequestError} from "@/App/store/storeTypes.ts";
+import {api} from "@/utils/api/api.ts";
+import {QUERY} from "@/App/store/backend/constants.ts";
+import {Reviews} from "@/App/store/reducers/reviewsReducer/reviewsScheme.ts";
 
 interface RequestReviews {
     bookId: string | undefined;

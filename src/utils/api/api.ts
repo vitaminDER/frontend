@@ -1,4 +1,4 @@
-import API from "./api.utils.ts";
+import API from "@/utils/api/api.utils.ts";
 
 const baseURL = "http://localhost:8081/";
 // const baseURL = "https://jsonplaceholder.typicode.com/";

@@ -1,11 +1,11 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import {booksSliceReducer} from "./reducers/booksReducer/booksSlice.ts";
 import storage from 'redux-persist/lib/storage'
 import {FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE,} from 'redux-persist';
-import {authSliceReducer} from "./reducers/authReducer/authSlice.ts";
-import {itemBookSliceReducer} from "./reducers/bookItemReducer/bookSlice.ts";
-import {reviewsSliceReducer} from "./reducers/reviewsReducer/reviewsSlice.ts";
-import {userPreferenceSliceReducer} from "./reducers/userPreference/userPreferenceSlice.ts";
+import {booksSliceReducer} from "@/App/store/reducers/booksReducer/booksSlice.ts";
+import {itemBookSliceReducer} from "@/App/store/reducers/bookItemReducer/bookSlice.ts";
+import {reviewsSliceReducer} from "@/App/store/reducers/reviewsReducer/reviewsSlice.ts";
+import {authSliceReducer} from "@/App/store/reducers/authReducer/authSlice.ts";
+import {userPreferenceSliceReducer} from "@/App/store/reducers/userPreference/userPreferenceSlice.ts";
 
 
 const persistConfig = {

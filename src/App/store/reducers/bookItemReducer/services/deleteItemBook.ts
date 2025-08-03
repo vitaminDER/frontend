@@ -1,12 +1,8 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import type {RequestError} from "../../../storeTypes.ts";
-import {api} from "../../../../../utils/api/api.ts";
-import {QUERY} from "../../../backend/constants.ts";
 import type {AxiosError} from "axios";
-
-interface RequestBook {
-    id: string | undefined;
-}
+import {RequestError} from "@/App/store/storeTypes.ts";
+import {api} from "@/utils/api/api.ts";
+import {QUERY} from "@/App/store/backend/constants.ts";
 
 export const deleteItemBook = createAsyncThunk<void, string, {
     rejectValue: RequestError
@@ -18,7 +14,7 @@ export const deleteItemBook = createAsyncThunk<void, string, {
     } catch (e) {
         const error = e as AxiosError<RequestError>
         if (error.response?.status === 400 && error.response?.data) {
-            return thunkAPI.rejectWithValue(error?.response?.data)
+            return thunkAPI?.rejectWithValue(error?.response?.data)
         }
         return thunkAPI.rejectWithValue({
             code: 111,

@@ -2,10 +2,10 @@ import {LinkContainer, NavContainer, NavWrapper, RightContainer} from "./styles.
 import {Button} from "@mui/material";
 import {JSX} from "react";
 import {Link, useNavigate} from "react-router-dom";
-import {PATH} from "../../../../constants.ts";
-import {BooksSvg} from "../../../../assets/BooksSvg.tsx";
-import {useAuth} from "../../../../App/store/hooks/useAuth.ts";
-import {UserRole} from "../../../../App/store/reducers/authReducer/authSchema.ts";
+import {useAuth} from "@/App/store/hooks/useAuth.ts";
+import {PATH} from "@/constants.ts";
+import {UserRole} from "@/App/store/reducers/authReducer/authSchema.ts";
+import {BooksSvg} from "@/assets/BooksSvg.tsx";
 
 export const Nav = (): JSX.Element => {
     const {isAuth, role} = useAuth();

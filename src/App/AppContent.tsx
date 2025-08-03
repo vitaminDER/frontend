@@ -1,12 +1,12 @@
-import {Nav} from "../widgets/ui/Nav";
 import {Outlet} from "react-router-dom";
-import {AppContentWrapper, LoaderContainer} from "./styled.ts";
 import {LinearProgress} from "@mui/material";
-import {useAppSelector} from "./store/storeHooks.ts";
-import {getLoadingBooksSelector} from "./store/reducers/booksReducer/selectors.ts";
-import {FetchStatus} from "./store/storeTypes.ts";
 import {JSX} from "react";
-import {getItemBookStatusSelector} from "./store/reducers/bookItemReducer/selectors.ts";
+import {useAppSelector} from "@/App/store/storeHooks.ts";
+import {getLoadingBooksSelector} from "@/App/store/reducers/booksReducer/selectors.ts";
+import {getItemBookStatusSelector} from "@/App/store/reducers/bookItemReducer/selectors.ts";
+import {FetchStatus} from "@/App/store/storeTypes.ts";
+import {AppContentWrapper, LoaderContainer} from "@/App/styled.ts";
+import {Nav} from "@/widgets/ui/Nav";
 
 export const AppContent = (): JSX.Element => {
     const loadingStatusBooks = useAppSelector(getLoadingBooksSelector);

@@ -1,7 +1,7 @@
-import {FetchStatus} from "../../storeTypes.ts";
 import {createSlice} from "@reduxjs/toolkit";
-import type {ReviewsScheme} from "./reviewsScheme.ts";
-import {fetchReviews} from "./services/fetchReviews.ts";
+import {ReviewsScheme} from "@/App/store/reducers/reviewsReducer/reviewsScheme.ts";
+import {FetchStatus} from "@/App/store/storeTypes.ts";
+import {fetchReviews} from "@/App/store/reducers/reviewsReducer/services/fetchReviews.ts";
 
 // const reviewMock = {
 //     content: [

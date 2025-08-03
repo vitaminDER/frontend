@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
-import type {IBooks} from "../../../../App/store/reducers/booksReducer/booksScheme.ts";
-import {BookImage} from "../../BookImage";
+import {IBooks} from "@/App/store/reducers/booksReducer/booksScheme.ts";
+import {BookImage} from "@/widgets/ui/BookImage";
 
 interface BookProps {
     book: IBooks;

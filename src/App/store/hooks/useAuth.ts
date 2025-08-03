@@ -1,5 +1,5 @@
-import {useAppSelector} from "../storeHooks.ts";
-import {getAuth} from "../reducers/authReducer/authSelectors.ts";
+import {useAppSelector} from "@/App/store/storeHooks.ts";
+import {getAuth} from "@/App/store/reducers/authReducer/authSelectors.ts";
 
 export const useAuth = () => {
     const {id, email, login, isAuth, isRegistered, role} = useAppSelector(getAuth);

@@ -1,8 +1,8 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import type {RequestError} from "../../../storeTypes.ts";
-import {api} from "../../../../../utils/api/api.ts";
-import {QUERY} from "../../../backend/constants.ts";
 import type {AxiosError} from "axios";
+import {RequestError} from "@/App/store/storeTypes.ts";
+import {api} from "@/utils/api/api.ts";
+import {QUERY} from "@/App/store/backend/constants.ts";
 
 export interface RequestRegistration {
     login: string;

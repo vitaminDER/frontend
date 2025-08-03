@@ -2,15 +2,15 @@ import {AccordionCollapsed, AccordionUnCollapsed, PaginationContainer, ReviewCon
 import {ChangeEvent, useEffect, useState} from "react";
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import {Review} from "../../Review/ui/Review.tsx";
 import Pagination from '@mui/material/Pagination';
-import {fetchReviews} from "../../../../App/store/reducers/reviewsReducer/services/fetchReviews.ts";
 import {useParams} from "react-router-dom";
-import {useAppDispatch, useAppSelector} from "../../../../App/store/storeHooks.ts";
-import {getReviews} from "../../../../App/store/reducers/reviewsReducer/selectors.ts";
-import {setPagination} from "../../../../App/store/reducers/reviewsReducer/reviewsSlice.ts";
-import {FetchStatus} from "../../../../App/store/storeTypes.ts";
 import {CircularProgress} from "@mui/material";
+import {useAppDispatch, useAppSelector} from "@/App/store/storeHooks.ts";
+import {getReviews} from "@/App/store/reducers/reviewsReducer/selectors.ts";
+import {setPagination} from "@/App/store/reducers/reviewsReducer/reviewsSlice.ts";
+import {fetchReviews} from "@/App/store/reducers/reviewsReducer/services/fetchReviews.ts";
+import {FetchStatus} from "@/App/store/storeTypes.ts";
+import {Review} from "@/widgets/ui/Review/ui/Review.tsx";
 
 
 export const Accordion = () => {

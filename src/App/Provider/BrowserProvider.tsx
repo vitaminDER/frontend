@@ -1,20 +1,20 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {PATH} from "../../constants.ts";
 import * as React from "react";
 import {Suspense} from "react";
-import {AppContent} from "../AppContent.tsx";
-import {Profile} from "../../pages/Profile/Profile.tsx";
-import {NotFound} from "../../pages/NotFound/ui/NotFound.tsx";
-import {Main} from "../../pages/Main";
-import {Books} from "../../pages/Books";
-import {BookItem} from "../../widgets/ui/BookItem";
-import {Registration} from "../../pages/Registration";
-import {Auth} from "../../pages/Auth";
 import {CircularProgress} from "@mui/material";
-import {useAuth} from "../store/hooks/useAuth.ts";
-import ProtectedRoute from "./ProtectedRoute.tsx";
-import {Admin} from "../../pages/Admin";
-import {UserRole} from "../store/reducers/authReducer/authSchema.ts";
+import {PATH} from "@/constants.ts";
+import {AppContent} from "@/App/AppContent.tsx";
+import {Profile} from "@/pages/Profile/Profile.tsx";
+import {NotFound} from "@/pages/NotFound";
+import {Main} from "@/pages/Main";
+import {Books} from "@/pages/Books";
+import {BookItem} from "@/widgets/ui/BookItem";
+import {Registration} from "@/pages/Registration";
+import {Admin} from "@/pages/Admin";
+import {Auth} from "@/pages/Auth";
+import {useAuth} from "@/App/store/hooks/useAuth.ts";
+import ProtectedRoute from "@/App/Provider/ProtectedRoute.tsx";
+import {UserRole} from "@/App/store/reducers/authReducer/authSchema.ts";
 
 export const BrowserProvider = () => {
     const {isAuth, role} = useAuth();

@@ -1,8 +1,8 @@
-import {FetchStatus} from "../../storeTypes.ts";
 import type {BookItemScheme} from "./bookItemSheme.ts";
 import {createSlice} from "@reduxjs/toolkit";
-import {fetchItemBook} from "./services/fetchItemBook.ts";
-import {deleteItemBook} from "./services/deleteItemBook.ts";
+import {FetchStatus} from "@/App/store/storeTypes.ts";
+import {fetchItemBook} from "@/App/store/reducers/bookItemReducer/services/fetchItemBook.ts";
+import {deleteItemBook} from "@/App/store/reducers/bookItemReducer/services/deleteItemBook.ts";
 
 
 const initialState: BookItemScheme = {

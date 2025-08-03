@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import type {UserPreferenceScheme} from "./userPreferenceScheme.ts";
+import {UserPreferenceScheme} from "@/App/store/reducers/userPreference/userPreferenceScheme.ts";
 
 const initialState: UserPreferenceScheme = {
     preference: 'preference',

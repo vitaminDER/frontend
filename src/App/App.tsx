@@ -1,13 +1,13 @@
 import "./App.css";
-import { BrowserProvider } from "./Provider/BrowserProvider.tsx";
-import { StoreProvider } from "./Provider/StoreProvider.tsx";
+import {StoreProvider} from "@/App/Provider/StoreProvider.tsx";
+import {BrowserProvider} from "@/App/Provider/BrowserProvider.tsx";
 
 function App() {
-  return (
-    <StoreProvider>
-      <BrowserProvider />
-    </StoreProvider>
-  );
+    return (
+        <StoreProvider>
+            <BrowserProvider/>
+        </StoreProvider>
+    );
 }
 
 export default App;

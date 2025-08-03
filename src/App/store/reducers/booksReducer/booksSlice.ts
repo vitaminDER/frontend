@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
-import type {BooksScheme} from "./booksScheme.ts";
-import {FetchStatus} from "../../storeTypes.ts";
-import {fetchBooks} from "./services.ts";
+import {BooksScheme} from "@/App/store/reducers/booksReducer/booksScheme.ts";
+import {FetchStatus} from "@/App/store/storeTypes.ts";
+import {fetchBooks} from "@/App/store/reducers/booksReducer/services.ts";
 
 
 // const mockBooks: IBooks[] = [

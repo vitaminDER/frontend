@@ -1,17 +1,14 @@
-import {FormContainer, RegistrationWrapper} from "./styled.ts";
 import {Button, IconButton, InputAdornment, TextField} from "@mui/material";
 import {ChangeEvent, ReactNode, useState, MouseEvent, useCallback} from "react";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import {useAppDispatch} from "../../../App/store/storeHooks.ts";
-import {
-    fetchRegistration,
-    RequestRegistration
-} from "../../../App/store/reducers/authReducer/services/fetchRegistration.ts";
 import type {FormStates} from "./interface.ts";
-import {useAuth} from "../../../App/store/hooks/useAuth.ts";
 import {Navigate} from "react-router-dom";
-import {PATH} from "../../../constants.ts";
+import {useAppDispatch} from "@/App/store/storeHooks.ts";
+import {fetchRegistration, RequestRegistration} from "@/App/store/reducers/authReducer/services/fetchRegistration.ts";
+import {useAuth} from "@/App/store/hooks/useAuth.ts";
+import {PATH} from "@/constants.ts";
+import {FormContainer, RegistrationWrapper} from "@/pages/Registration/ui/styled.ts";
 
 
 export const Registration = () => {

@@ -1,4 +1,4 @@
-import type {RootState} from "../../store.ts";
+import {RootState} from "@/App/store/store.ts";
 
 export const getBooksSelector = (state: RootState) => state.books.books;
 export const getLoadingBooksSelector = (state: RootState) => state.books.loadingBooks;

@@ -1,3 +1,3 @@
-import {Book} from './ui/Book.tsx';
+import {Book} from './ui/Book.tsx'
 
 export {Book};
