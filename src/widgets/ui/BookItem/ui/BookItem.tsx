@@ -42,7 +42,7 @@ export const BookItem = () => {
             <InfoBookContainer style={{color: '#000'}}>
                 {/*<BookImage author={book?.author} bookName={book?.title}/>*/}
                 <>{book?.image ? <img src={book.image} width={200} height={300}/> :
-                    <BookImage bookName={book?.title} author={?.author}/>
+                    <BookImage bookName={book?.title} author={book?.author}/>
                 }</>
 
                 <InfoBook>
