@@ -22,7 +22,9 @@ export const Books = () => {
                 color: 'black',
                 textDecoration: 'none'
             }}>
-                <BookImage bookName={el.title} author={el.author}/>
+                <>{el.image ? <img src={el.image} width={200} height={300}/> :
+                    <BookImage bookName={el.title} author={el.author}/>
+                }</>
             </Link>
         });
     }, [allBooks]);

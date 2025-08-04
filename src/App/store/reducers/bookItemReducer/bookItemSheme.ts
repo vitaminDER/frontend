@@ -14,6 +14,7 @@ export interface BookItem {
     rating: number;
     description: string;
     genre: Genre[];
+    image: string;
 }
 
 export interface BookItemScheme {

@@ -40,7 +40,11 @@ export const BookItem = () => {
     return (
         <InfoBookWrapper>
             <InfoBookContainer style={{color: '#000'}}>
-                <BookImage author={book?.author} bookName={book?.title}/>
+                {/*<BookImage author={book?.author} bookName={book?.title}/>*/}
+                <>{book?.image ? <img src={book.image} width={200} height={300}/> :
+                    <BookImage bookName={book?.title} author={?.author}/>
+                }</>
+
                 <InfoBook>
                     <Rating rating={book ? book.rating : 0}/>
                     <h3> {book?.title.toUpperCase()}</h3>
