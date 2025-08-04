@@ -1,10 +1,10 @@
 import {ContentContainer} from "./styles.ts";
-import {Typography} from "@mui/material";
+import {ErrorComponent} from "@/widgets/ui/ErrorComponent";
 
 export const NotFound = () => {
     return (
         <ContentContainer>
-            <Typography variant="h3"> 404 not found</Typography>
+            <ErrorComponent image={'errorNotFound'} width='400px' height={'400px'}/>
         </ContentContainer>
     );
 };

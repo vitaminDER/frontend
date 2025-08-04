@@ -37,7 +37,7 @@ const booksSlice = createSlice<BooksScheme>({
                 state.loadingBooks = FetchStatus.SUCCESS;
             })
             .addCase(fetchBooks.rejected, (state, action) => {
-                state.errorBooks = action.payload?.message?.toUpperCase()
+                state.errorBooks = action.payload?.message as string;
                 state.loadingBooks = FetchStatus.REJECTED;
                 // console.log(action.payload)
                 // state.books = mockBooks;

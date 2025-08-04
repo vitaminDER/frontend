@@ -10,6 +10,7 @@ import {fetchItemBook} from "@/App/store/reducers/bookItemReducer/services/fetch
 import {BookImage} from "@/widgets/ui/BookImage";
 import {Accordion} from "@/widgets/ui/Accordion";
 import {Rating} from "@/widgets/ui/Rating/ui/Rating.tsx";
+import {ErrorComponent} from "@/widgets/ui/ErrorComponent";
 
 export const BookItem = () => {
     const {id} = useParams();
@@ -33,7 +34,7 @@ export const BookItem = () => {
     }, []);
 
     if (errorBooks) {
-        return <div>{errorBooks}</div>
+        return <ErrorComponent title={errorBooks}/>
     }
 
     return (

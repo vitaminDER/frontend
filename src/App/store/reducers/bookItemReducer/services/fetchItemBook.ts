@@ -23,7 +23,7 @@ export const fetchItemBook = createAsyncThunk<BookItem, RequestBook, {
         }
         return thunkAPI.rejectWithValue({
             code: 111,
-            message: error.response?.data.message || 'Не удалось получить список книг',
+            message: error.response?.data.message || 'Не удалось получит информацию по книге',
             errorCode: '',
         });
 
