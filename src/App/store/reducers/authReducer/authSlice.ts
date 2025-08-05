@@ -1,15 +1,13 @@
-import {createSlice, SliceCaseReducers,} from "@reduxjs/toolkit";
+import {createSlice, PayloadAction, SliceCaseReducers,} from "@reduxjs/toolkit";
 import {FetchStatus} from "@/App/store/storeTypes.ts";
 import {fetchRegistration} from "@/App/store/reducers/authReducer/services/fetchRegistration.ts";
-import {AuthSchema, UserRole} from "@/App/store/reducers/authReducer/authSchema.ts";
+import {AuthData, AuthSchema, UserRole} from "@/App/store/reducers/authReducer/authSchema.ts";
 import {fetchAuth} from "@/App/store/reducers/authReducer/services/fetchAuth.ts";
 
 const initialState: AuthSchema = {
     authData: {
         id: '',
-        email: '',
         login: '',
-        password: '',
         role: [UserRole.ADMIN],
         isAuth: false,
         isRegistered: false,
@@ -25,7 +23,10 @@ export const authSlice = createSlice<AuthSchema, SliceCaseReducers<AuthSchema>>(
     initialState,
     reducers: {
         setAuth(state: AuthSchema, action) {
-            state.authData = action.payload
+            state.authData = action.payload;
+        },
+        setLogout(state: AuthSchema, action: PayloadAction<AuthData>) {
+            state.authData = action.payload;
         }
     },
     extraReducers: (builder) => {
@@ -57,5 +58,5 @@ export const authSlice = createSlice<AuthSchema, SliceCaseReducers<AuthSchema>>(
 });
 
 
-export const {setAuth} = authSlice.actions;
+export const {setAuth, setLogout} = authSlice.actions;
 export const authSliceReducer = authSlice.reducer;

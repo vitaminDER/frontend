@@ -1,6 +1,6 @@
-import {useNavigate, useParams} from "react-router-dom";
-import {useEffect} from "react";
-import {ButtonBlock, ButtonContainer, InfoBook, InfoBookContainer, InfoBookWrapper} from "./styles.ts";
+import {Link, useNavigate, useParams} from "react-router-dom";
+import {ReactNode, useEffect} from "react";
+import {ButtonBlock, ButtonContainer, InfoBook, InfoBookContainer, InfoBookWrapper, LinkBox} from "./styles.ts";
 import {Button} from "@mui/material";
 import {useAppDispatch, useAppSelector} from "@/App/store/storeHooks.ts";
 import {getItemBookSelector} from "@/App/store/reducers/bookItemReducer/selectors.ts";
@@ -11,8 +11,12 @@ import {BookImage} from "@/widgets/ui/BookImage";
 import {Accordion} from "@/widgets/ui/Accordion";
 import {Rating} from "@/widgets/ui/Rating/ui/Rating.tsx";
 import {ErrorComponent} from "@/widgets/ui/ErrorComponent";
+import {useAuth} from "@/App/store/hooks/useAuth.ts";
+import {UserRole} from "@/App/store/reducers/authReducer/authSchema.ts";
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 
 export const BookItem = () => {
+    const {isAuth, role} = useAuth();
     const {id} = useParams();
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
@@ -26,7 +30,7 @@ export const BookItem = () => {
     })
     const deleteHandler = (id) => {
         dispatch(deleteItemBook(id))
-        navigate(PATH.BOOKS)
+        navigate(PATH.BASE)
     }
 
     useEffect(() => {
@@ -39,8 +43,8 @@ export const BookItem = () => {
 
     return (
         <InfoBookWrapper>
+            <Link to={PATH.BASE}><LinkBox><NavigateBeforeIcon fontSize='small'/> Главная</LinkBox></Link>
             <InfoBookContainer style={{color: '#000'}}>
-                {/*<BookImage author={book?.author} bookName={book?.title}/>*/}
                 <>{book?.image ? <img src={book.image} width={200} height={300}/> :
                     <BookImage bookName={book?.title} author={book?.author}/>
                 }</>
@@ -57,12 +61,12 @@ export const BookItem = () => {
                 </InfoBook>
             </InfoBookContainer>
             <ButtonBlock>
-                <ButtonContainer>
+                {isAuth && role.includes(UserRole.ADMIN) ? <ButtonContainer>
                     <Button variant="outlined"
                             onClick={() => deleteHandler(bookId)}>Удалить</Button>
-                </ButtonContainer>
+                </ButtonContainer> : null as ReactNode}
                 <ButtonContainer>
-                    <Button variant="outlined">Читать</Button>
+                    <Button variant="outlined" style={{width: '100%'}}>Читать</Button>
                 </ButtonContainer>
             </ButtonBlock>
             <Accordion id={bookId}/>

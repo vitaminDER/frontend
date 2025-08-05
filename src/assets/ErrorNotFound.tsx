@@ -1,16 +1,16 @@
-interface ErrorNotFoundProps {
+interface PropsSvg {
     width?: string;
     height?: string;
 }
 
-export const ErrorNotFound = ({width, height}: ErrorNotFoundProps) => <svg fill="#80b4e5"
-                                                                           width={width ? width : '400px'}
-                                                                           height={height ? height : '400px'}
-                                                                           version="1.1" id="Layer_1"
-                                                                           xmlns="http://www.w3.org/2000/svg"
-                                                                           xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                           viewBox="0 0 512.011 512.011"
-                                                                           xml:space="preserve" stroke="#80b4e5">
+export const ErrorNotFound = ({width, height}: PropsSvg) => <svg fill="#80b4e5"
+                                                                 width={width ? width : '400px'}
+                                                                 height={height ? height : '400px'}
+                                                                 version="1.1" id="Layer_1"
+                                                                 xmlns="http://www.w3.org/2000/svg"
+                                                                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                 viewBox="0 0 512.011 512.011"
+                                                                 xml:space="preserve" stroke="#80b4e5">
 
     <g id="SVGRepo_bgCarrier" stroke-width="0"/>
 

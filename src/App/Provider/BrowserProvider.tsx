@@ -6,7 +6,6 @@ import {PATH} from "@/constants.ts";
 import {AppContent} from "@/App/AppContent.tsx";
 import {Profile} from "@/pages/Profile/Profile.tsx";
 import {NotFound} from "@/pages/NotFound";
-import {Main} from "@/pages/Main";
 import {Books} from "@/pages/Books";
 import {BookItem} from "@/widgets/ui/BookItem";
 import {Registration} from "@/pages/Registration";
@@ -26,8 +25,7 @@ export const BrowserProvider = () => {
         }}>
             <Routes>
                 <Route path={PATH.BASE} element={<AppContent/>}>
-                    <Route index path={PATH.BASE} element={<Main/>}/>
-                    <Route index path={PATH.BOOKS} element={<Books/>}/>
+                    <Route index path={PATH.BASE} element={<Books/>}/>
                     <Route path={PATH.BOOKITEM} element={
                         <Suspense fallback={
                             <CircularProgress size="30px"/>}><BookItem/></Suspense>}></Route>

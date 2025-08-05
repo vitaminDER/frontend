@@ -1,11 +1,12 @@
 import {LinkContainer, NavContainer, NavWrapper, RightContainer} from "./styles.ts";
-import {Button} from "@mui/material";
+import {Button, Tooltip} from "@mui/material";
 import {JSX} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {useAuth} from "@/App/store/hooks/useAuth.ts";
 import {PATH} from "@/constants.ts";
 import {UserRole} from "@/App/store/reducers/authReducer/authSchema.ts";
 import {BooksSvg} from "@/assets/BooksSvg.tsx";
+
 
 export const Nav = (): JSX.Element => {
     const {isAuth, role} = useAuth();
@@ -16,8 +17,11 @@ export const Nav = (): JSX.Element => {
         <NavWrapper>
             <NavContainer>
                 <LinkContainer>
-                    <Link to={PATH.BASE}><BooksSvg/></Link>
-                    <Link to={PATH.BOOKS}>Книги</Link>
+                    <Tooltip color={'#fff'} title="На главную" placement="right-start" arrow>
+                        <Link to={PATH.BASE}>
+                            <BooksSvg/>
+                        </Link>
+                    </Tooltip>
                 </LinkContainer>
                 <RightContainer><Button
                     sx={{width: '100px'}}

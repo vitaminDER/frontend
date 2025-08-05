@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {BooksScheme} from "@/App/store/reducers/booksReducer/booksScheme.ts";
+import {BooksScheme, IBooks} from "@/App/store/reducers/booksReducer/booksScheme.ts";
 import {FetchStatus} from "@/App/store/storeTypes.ts";
 import {fetchBooks} from "@/App/store/reducers/booksReducer/services.ts";
 
@@ -8,11 +8,13 @@ import {fetchBooks} from "@/App/store/reducers/booksReducer/services.ts";
 //     {
 //         id: '1',
 //         title: 'Воина и мир',
-//         author: 'Толстой Л.Н.'
+//         author: 'Толстой Л.Н.',
+//         image: '',
 //     }, {
 //         id: '2',
 //         title: 'Хоббит',
-//         author: 'Толкин Р.Р.'
+//         author: 'Толкин Р.Р.',
+//         image: '',
 //     },
 // ]
 

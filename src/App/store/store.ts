@@ -6,6 +6,7 @@ import {itemBookSliceReducer} from "@/App/store/reducers/bookItemReducer/bookSli
 import {reviewsSliceReducer} from "@/App/store/reducers/reviewsReducer/reviewsSlice.ts";
 import {authSliceReducer} from "@/App/store/reducers/authReducer/authSlice.ts";
 import {userPreferenceSliceReducer} from "@/App/store/reducers/userPreference/userPreferenceSlice.ts";
+import {profileSliceReducer} from "@/App/store/reducers/profileReducer/profileSlice.ts";
 
 
 const persistConfig = {
@@ -20,6 +21,7 @@ export const rootReducer = combineReducers({
     reviews: reviewsSliceReducer,
     authPreference: authSliceReducer,
     userPreference: userPreferenceSliceReducer,
+    profile: profileSliceReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

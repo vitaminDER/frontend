@@ -1,5 +1,6 @@
+import {UserProfile} from "@/widgets/ui/UserProfile";
+
 export const Profile = () => {
 
-
-    return <div>Profile</div>;
+    return <UserProfile/>;
 };

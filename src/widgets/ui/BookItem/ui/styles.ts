@@ -6,6 +6,12 @@ export const InfoBookWrapper = styled.div`
     flex-direction: column;
     gap: 30px;
 `;
+
+export const LinkBox = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`;
 export const InfoBookContainer = styled.div`
     display: flex;
     flex-direction: row;
@@ -29,4 +35,5 @@ export const ButtonBlock = styled.div`
 `;
 
 export const ButtonContainer = styled.div`
+    width: 100%;
 `;

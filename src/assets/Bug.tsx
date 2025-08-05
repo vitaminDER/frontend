@@ -1,9 +1,9 @@
-interface BugProps {
+interface PropsSvg {
     width?: string;
     height?: string;
 }
 
-export const Bug = ({width, height}: BugProps) => <svg width={width ? width : '400px'}
+export const Bug = ({width, height}: PropsSvg) => <svg width={width ? width : '400px'}
                                                        height={height ? height : '400px'}
                                                        viewBox="0 0 1024 1024" class="icon"
                                                        version="1.1"

@@ -6,6 +6,7 @@ import {BooksListContainer, BooksWrapper} from "@/pages/Books/ui/styles.ts";
 import {BookImage} from "@/widgets/ui/BookImage";
 import {Link} from "react-router-dom";
 import {ErrorComponent} from "@/widgets/ui/ErrorComponent";
+import {Divider} from "@mui/material";
 
 export const Books = () => {
     const dispatch = useAppDispatch();
@@ -36,6 +37,8 @@ export const Books = () => {
     return (
 
         <BooksWrapper>
+            <BooksListContainer><h3>Рекомендованные</h3></BooksListContainer>
+            <Divider textAlign={"left"}>Все книги</Divider>
             <BooksListContainer>
                 <>{booksList.length === 0 ? <ErrorComponent>Список книг пуст</ErrorComponent> : booksList}</>
             </BooksListContainer>

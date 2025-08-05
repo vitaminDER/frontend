@@ -7,9 +7,7 @@ export enum UserRole {
 
 export interface AuthData {
     id: string;
-    email: string;
-    login: string;
-    password: string;
+    login: string
     role: UserRole[];
     isAuth: boolean;
     isRegistered: boolean;
