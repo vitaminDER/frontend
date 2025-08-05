@@ -8,10 +8,13 @@ import {Divider, Typography} from "@mui/material";
 import {MaleAvatar} from "@/assets/MaleAvatar.tsx";
 import {FemaleAvatar} from "@/assets/FemaleAvatar.tsx";
 import {PATH} from "@/constants.ts";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useAppDispatch} from "@/App/store/storeHooks.ts";
 import {setLogout} from "@/App/store/reducers/authReducer/authSlice.ts";
 import {AuthData} from "@/App/store/reducers/authReducer/authSchema.ts";
+import {fetchProfile} from "@/App/store/reducers/profileReducer/services/fetchProfile.ts";
+import {useAuth} from "@/App/store/hooks/useAuth.ts";
+// import {getProfile} from "@/App/store/reducers/profileReducer/selectors.ts";
 
 const profile = {
     id: '1231',
@@ -38,6 +41,8 @@ const tabOptions: ITab[] = [
 
 export const UserProfile = () => {
     const dispatch = useAppDispatch();
+    const {id, isAuth} = useAuth();
+    // const { profile} = useAppSelector(getProfile);
 
     const [tab, setTab] = useState<ITab>(tabOptions[0])
 
@@ -63,7 +68,14 @@ export const UserProfile = () => {
             isRegistered: false,
         }
         dispatch(setLogout(initAuth));
-    }
+    };
+
+    useEffect(() => {
+        if (isAuth) {
+            dispatch(fetchProfile({userId: id}));
+        }
+    }, [dispatch, id, isAuth]);
+
 
     return (
         <UserProfileWrapper>

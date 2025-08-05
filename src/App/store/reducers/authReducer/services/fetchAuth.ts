@@ -10,6 +10,8 @@ export interface RequestAuth {
 }
 
 interface ResponseAuth {
+    id: string;
+    login: string;
     isAuth: boolean;
 }
 
